@@ -1,0 +1,22 @@
+.menuBar {
+    width:25%;
+    float: left;
+    height: 100%;
+    overflow: hidden;
+    background: silver;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.menuBarPoint {
+    width: 100px;
+    height: 100px;
+    border: solid black 1px;
+    box-sizing: border-box;
+}
+.menuBarGroup {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

@@ -1,0 +1,10 @@
+.settingsTabsButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  color:white;
+  height: 30px;
+  border-bottom: solid white 1px;
+}
