@@ -10,32 +10,35 @@ class ChartBarRow extends Component {
 
     render() {
         let {sufix,prefix} = this.props.numberFormat;
+        let {reverseX,reverseY} = this.props.axis;
         return (
           <Chart width={this.props.width}
                  height={this.props.height}
-                 series={series}
+                 series={this.props.series}
                  minY={0}
-                 minX = {0}
+                 scaleY = {reverseX}
+                 scaleX = {reverseY}
                   >
               <Layer width = "80%" height = "80%" position = "middle center" >
                 <Transform method = {this.props.transform} >
                 <Ticks
                   axis='y'
                   lineLength='90%'
-                  lineOffset = "10%"
+                  lineOffset = "0%"
                   labelFormat = {(label) => `${sufix} ${label} ${prefix}`}
                   lineVisible={this.props.axis.y}
                   lineStyle={{stroke:'lightgray'}}
-                  labelStyle={{textAnchor:'middle',dominantBaseline:'text-before-edge',fill:'lightgray'}}
+                  labelStyle={{textAnchor:'middle',dominantBaseline:'start',fill:'lightgray'}}
                   ticks = {this.props.axis.tiksY}
                   />
                   <Ticks
                     axis='x'
                     lineLength='100%'
                     lineVisible={this.props.axis.x}
+                    label={({index, props}) => props.series[index].name}
                     lineStyle={{stroke:'lightgray'}}
                     labelStyle={{textAnchor:'end',dominantBaseline:'middle',fill:'lightgray'}}
-                    ticks = {this.props.axis.tiksX}
+
                     />
 
                     <Bars colors='category10'
@@ -54,6 +57,7 @@ export default connect(
   state => ({
       axis:state.axisChart,
       numberFormat:state.numberFormat,
+      series:state.dataTable.data,
   }),
   dispatch => ({
 

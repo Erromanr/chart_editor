@@ -3,6 +3,12 @@ let initialState  = {
   y:false,
   tiksX:0,
   tiksY:0,
+  reverseX:{
+    direction:0
+  },
+  reverseY:{
+    direction:0
+  },
 }
 
 export default function axisChart(state = initialState,action) {
@@ -17,6 +23,14 @@ export default function axisChart(state = initialState,action) {
     }
     if(action.type === "TICKS_X") {
         return Object.assign({},state , {tiksX:action.payload});
+    }
+    if(action.type === "REVERSE_X") {
+        let value = action.payload ? (-1) : 0;
+        return Object.assign({},state,{reverseX:{direction:value}});
+    }
+    if(action.type === "REVERSE_Y") {
+        let value = action.payload ? (-1) : 0;
+        return Object.assign({},state,{reverseY:{direction:value}});
     }
     return state;
 }

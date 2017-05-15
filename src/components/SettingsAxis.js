@@ -11,6 +11,8 @@ class SettingsAxis extends Component {
         this.handleX = this.handleX.bind(this);
         this.handleTicksX = this.handleTicksX.bind(this);
         this.handleTab = this.handleTab.bind(this);
+        this.reverseX = this.reverseX.bind(this);
+        this.reverseY = this.reverseY.bind(this);
     }
     handleY(e) {
         this.props.axisY(e.target.checked);
@@ -29,8 +31,14 @@ class SettingsAxis extends Component {
         e.preventDefault();
         this.props.ative();
     }
+    reverseX(e){
+        this.props.reverseX(e.target.checked);
+    }
+    reverseY(e){
+        this.props.reverseY(e.target.checked);
+    }
     render() {
-        let {x,y} = this.props.axis;
+        let {x,y,reverseY,reverseX} = this.props.axis;
         let link = {textDecoration:"none"};
         let tab = (
           <div className = "settingsAxisBlock" >
@@ -60,6 +68,18 @@ class SettingsAxis extends Component {
                      max = "20"
                      />
             </label>
+            <div>
+                <label > Reverse X
+                  <input type = "checkbox"
+                         onClick = {this.reverseX}
+                         checked = {reverseX.direction ? "checked" : null}/>
+                </label>
+                <label >Reverse Y
+                  <input type = "checkbox"
+                         onClick = {this.reverseY}
+                         checked = {reverseY.direction ? "checked" : null}/>
+                </label>
+            </div>
           </div>
         );
         return (
@@ -96,6 +116,12 @@ export default connect(
       },
       ative:()=> {
           dispatch({type:"ACTIVE_AXIS_TAB"})
+      },
+      reverseX:(value) => {
+          dispatch({type:"REVERSE_X",payload:value})
+      },
+      reverseY:(value) => {
+          dispatch({type:"REVERSE_Y",payload:value})
       },
 
 

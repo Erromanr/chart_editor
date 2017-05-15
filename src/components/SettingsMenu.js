@@ -22,6 +22,7 @@ class SettingsMenu extends Component {
           <SettingsAxis />
           <SettingsNumberFormat />
           <SettingsDataButton />
+        
       </div>
     );
   }

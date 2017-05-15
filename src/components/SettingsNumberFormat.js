@@ -9,6 +9,7 @@ class SettingsNumberFormat extends Component {
         this.changeSufix = this.changeSufix.bind(this);
         this.changePrefix = this.changePrefix.bind(this);
         this.handleTab = this.handleTab.bind(this);
+        this.selectChange = this.selectChange.bind(this);
     }
     changeSufix(e) {
         this.props.sufix(this.refs.sufix.value);
@@ -19,6 +20,10 @@ class SettingsNumberFormat extends Component {
     handleTab(e) {
         e.preventDefault();
         this.props.active();
+    }
+    selectChange(e) {
+        this.props.format(e.target.value);
+        console.log(e.target.value);
     }
     render() {
         let link = {textDecoration:"none"};
@@ -31,10 +36,12 @@ class SettingsNumberFormat extends Component {
                      onChange = {this.changeSufix}
                      value = {this.props.number.sufix}/>
               </label>
-              <select>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
+              <select onChange = {this.selectChange}>
+                <option value = {100}>100</option>
+                <option value = {10}>10</option>
+                <option selected value = {1}>without changes</option>
+                <option value = {0.1}>0.1</option>
+                <option value = {0.01}>0.01</option>
               </select>
               <label> prefix
               <input type = "text"
@@ -73,7 +80,9 @@ export default connect(
         active:() => {
             dispatch({type:"ACTIVE_NUMBER_TAB"});
         },
-
+        format:(value) => {
+            dispatch({type:"NUMBER_FORMAT",payload:value});
+        },
 
     })
 )(SettingsNumberFormat);

@@ -8,23 +8,22 @@ class ChartLine extends Component {
     }
 
     render() {
-        let {sufix,prefix} = this.props.numberFormat;
-
+        let {sufix,prefix,format} = this.props.numberFormat;
+        let {reverseX,reverseY} = this.props.axis;
         return (
           <Chart width={this.props.width}
                  height={this.props.height}
                  series={this.props.series}
                  minY={0}
-                 scaleY={{
-                   direction:1
-                 }}
+                 scaleY = {reverseX}
+                 scaleX = {reverseY}
                  >
           <Layer width = "80%" height = "80%" position = "middle center" >
             <Transform method = {this.props.transform}>
             <Ticks
               axis='y'
               lineLength='100%'
-              labelFormat = {(label) => `${sufix} ${label} ${prefix}`}
+              labelFormat = {(label) => `${sufix} ${label*(format*1000)/1000} ${prefix}`}
               lineVisible={this.props.axis.y}
               lineStyle={{stroke:'lightgray'}}
               labelStyle={{textAnchor:'end',dominantBaseline:'middle',fill:'lightgray'}}
@@ -35,7 +34,7 @@ class ChartLine extends Component {
                 lineLength='100%'
                 lineOffset = "-100%"
                 label={({index, props}) => props.series[index].name}
-                
+
                 lineVisible={this.props.axis.x}
                 lineStyle={{stroke:'lightgray'}}
                 labelStyle={{textAnchor:'middle',dominantBaseline:'text-before-edge',fill:'lightgray'}}

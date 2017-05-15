@@ -61,6 +61,7 @@ class ChartPlace extends Component {
     }
     return (
       <div className="chartPlace">
+      
           {elem}
           {this.props.activeTable ? <TableForData /> : null}
       </div>

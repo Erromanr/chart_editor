@@ -10,12 +10,15 @@ class ChartBar extends Component {
 
     render() {
         let {sufix,prefix} = this.props.numberFormat;
+        let {reverseX,reverseY} = this.props.axis;
         return (
           <Chart width={this.props.width}
                  height={this.props.height}
                  series={this.props.series}
                  minY={0}
                  minX = {0}
+                 scaleY = {reverseX}
+                 scaleX = {reverseY}
                   >
               <Layer width = "80%" height = "80%" position = "middle center" >
                 <Transform method = {this.props.transform} >
@@ -36,7 +39,7 @@ class ChartBar extends Component {
                     lineVisible={this.props.axis.x}
                     lineStyle={{stroke:'lightgray'}}
                     labelStyle={{textAnchor:'middle',dominantBaseline:'text-before-edge',fill:'lightgray'}}
-                    ticks = {this.props.axis.tiksX }
+
                     />
 
                     <Bars colors='category10'

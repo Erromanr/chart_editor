@@ -11,11 +11,14 @@ class ChartDots extends Component {
 
     render() {
         let {sufix,prefix} = this.props.numberFormat;
+        let {reverseX,reverseY} = this.props.axis;
         return(
           <Chart width={this.props.width}
                  height={this.props.height}
                  series={this.props.series}
                  minY={0}
+                 scaleY = {reverseX}
+                 scaleX = {reverseY}
                  >
           <Layer width = "80%" height = "80%" position = "middle center" >
           <Ticks
@@ -35,7 +38,7 @@ class ChartDots extends Component {
               lineVisible={this.props.axis.x}
               lineStyle={{stroke:'lightgray'}}
               labelStyle={{textAnchor:'middle',dominantBaseline:'text-before-edge',fill:'lightgray'}}
-              ticks = {this.props.axis.tiksX}
+
               />
             <Dots />
           </Layer>
@@ -49,7 +52,7 @@ export default connect(
     state => ({
         axis:state.axisChart,
         numberFormat:state.numberFormat,
-          series:state.dataTable.data,
+        series:state.dataTable.data,
     }),
     dispatch => ({
 
