@@ -10,7 +10,7 @@ class SettingsDataButton extends Component {
 
     handleLink(e) {
         e.preventDefault();
-
+        this.props.active();
     }
 
     render() {
@@ -25,5 +25,12 @@ class SettingsDataButton extends Component {
 }
 
 export default connect(
+    state => ({
 
+    }),
+    dispatch => ({
+        active:() => {
+            dispatch({type:"ACTIVE_DATA_TABLE"});
+        },
+    })
 )(SettingsDataButton);

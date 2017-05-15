@@ -5,6 +5,8 @@ import ChartLine from "./ChartLine";
 import ChartDots from "./ChartDots";
 import ChartBarRow from "./ChartBarRow";
 
+import TableForData from "./TableForData";
+
 import {connect} from "react-redux";
 
 import '../style/ChartPlace.css';
@@ -21,7 +23,7 @@ class ChartPlace extends Component {
       case "bar":
         elem = <ChartBar height = {this.props.size.height}
                           width = {this.props.size.width}
-                          
+
                           />;
         break;
       case "line":
@@ -60,6 +62,7 @@ class ChartPlace extends Component {
     return (
       <div className="chartPlace">
           {elem}
+          {this.props.activeTable ? <TableForData /> : null}
       </div>
     );
   }
@@ -69,6 +72,7 @@ export default connect(
     state => ({
         value:state.chartsType,
         size:state.chartsSize,
+        activeTable:state.activeDataTable,
     }),
     dispatch => ({
 

@@ -1,7 +1,7 @@
 import React , {Component} from "react";
 import {connect} from "react-redux";
 import {Bars,Chart,Layer , Ticks,Transform} from "rumble-charts";
-import data from "../data";
+import series from "../data";
 
 class ChartBar extends Component {
     constructor(props) {
@@ -13,7 +13,7 @@ class ChartBar extends Component {
         return (
           <Chart width={this.props.width}
                  height={this.props.height}
-                 series={data}
+                 series={this.props.series}
                  minY={0}
                  minX = {0}
                   >
@@ -32,7 +32,7 @@ class ChartBar extends Component {
                     axis='x'
                     lineLength='100%'
                     lineOffset = "-100%"
-
+                    label={({index, props}) => props.series[index].name}
                     lineVisible={this.props.axis.x}
                     lineStyle={{stroke:'lightgray'}}
                     labelStyle={{textAnchor:'middle',dominantBaseline:'text-before-edge',fill:'lightgray'}}
@@ -55,6 +55,7 @@ export default connect(
   state => ({
       axis:state.axisChart,
       numberFormat:state.numberFormat,
+      series:state.dataTable.data,
   }),
   dispatch => ({
 

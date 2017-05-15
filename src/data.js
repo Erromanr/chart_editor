@@ -1,12 +1,17 @@
- let data = [{
-
-    data:[[1,13],[2,14],[4,17]],
-
+const series = [
+{
+  name:"john",
+  data:[1,11]
 },
 {
-
-      data:[[1,10],[2,12],[4,14]],
-
+  name:"james",
+  data:[2,22]
+},
+{
+data:[3,33],
+},
+{
+data:[4,44]
 }
 ];
-export default data;
+export default series;

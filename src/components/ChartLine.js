@@ -2,8 +2,6 @@ import React , {Component} from "react";
 import {Chart,Lines ,Layer,Ticks,Dots,Transform} from "rumble-charts";
 import {connect} from "react-redux";
 
-import data from "../data";
-
 class ChartLine extends Component {
     constructor(props) {
         super(props);
@@ -15,8 +13,11 @@ class ChartLine extends Component {
         return (
           <Chart width={this.props.width}
                  height={this.props.height}
-                 series={data}
+                 series={this.props.series}
                  minY={0}
+                 scaleY={{
+                   direction:1
+                 }}
                  >
           <Layer width = "80%" height = "80%" position = "middle center" >
             <Transform method = {this.props.transform}>
@@ -33,11 +34,12 @@ class ChartLine extends Component {
                 axis='x'
                 lineLength='100%'
                 lineOffset = "-100%"
-
+                label={({index, props}) => props.series[index].name}
+                
                 lineVisible={this.props.axis.x}
                 lineStyle={{stroke:'lightgray'}}
                 labelStyle={{textAnchor:'middle',dominantBaseline:'text-before-edge',fill:'lightgray'}}
-                ticks = {this.props.axis.tiksX}
+
                 />
               <Lines />
               <Dots />
@@ -52,6 +54,8 @@ export default connect(
     state => ({
         axis:state.axisChart,
         numberFormat:state.numberFormat,
+        data:state.dataTable.grid,
+        series:state.dataTable.data,
     }),
     dispatch => ({
 

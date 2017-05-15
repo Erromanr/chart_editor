@@ -1,0 +1,11 @@
+.tableForDataCell {
+    width: 100%;
+    height: 2%;
+    background: white;
+}
+
+.tableForDataContainer{
+    width: 500px;
+    height: 600px;
+    background: red;
+}

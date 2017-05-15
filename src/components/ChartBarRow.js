@@ -1,7 +1,7 @@
 import React , {Component} from "react";
 import {connect} from "react-redux";
 import {Bars,Chart,Layer , Ticks,Transform} from "rumble-charts";
-import data from "../data";
+import series from "../data";
 
 class ChartBarRow extends Component {
     constructor(props) {
@@ -13,7 +13,7 @@ class ChartBarRow extends Component {
         return (
           <Chart width={this.props.width}
                  height={this.props.height}
-                 series={data}
+                 series={series}
                  minY={0}
                  minX = {0}
                   >
