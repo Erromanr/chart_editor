@@ -1,17 +1,16 @@
 const series = [
 {
   name:"john",
-  data:[1,11]
+  data:[33,11,23]
 },
 {
   name:"james",
-  data:[2,22]
+  data:[2,22,2]
 },
 {
-data:[3,33],
+  name:"roma",
+  data:[3,5,66],
 },
-{
-data:[4,44]
-}
+
 ];
 export default series;

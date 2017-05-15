@@ -24,25 +24,25 @@ let tableData =
          [
            {readOnly: true, value: 2},
            {value: "john",label:true},
-           {value: 1},
-           {value: 2},
-           {value: 3},
-           {value: 4},
+           {value: 33},
+           {value: 11},
+           {value: 23},
+           {value: ""},
            {value: ""},
            {value: ""}
          ],
          [
            {readOnly: true, value: 3},
            {value: "james",label:true},
-           {value: 11},
+           {value: 2},
            {value: 22},
-           {value: 33},
-           {value: 44},
+           {value: 2},
+           {value: ""},
            {value: ""},
            {value: ""}
          ],
         [
-          {readOnly: true, value: 4}, {value: ""  ,label:true}, {value:""}, {value: ""}, {value: ""},{value: ""}, {value: ""}, {value: ""}],
+          {readOnly: true, value: 4}, {value: "roman"  ,label:true}, {value:"3"}, {value: "5"}, {value: "66"},{value: ""}, {value: ""}, {value: ""}],
         [
           {readOnly: true, value: 5}, {value: "" ,label:true}, {value: ""}, {value: ""}, {value: ""},{value: ""}, {value: ""}, {value: ""}],
         [

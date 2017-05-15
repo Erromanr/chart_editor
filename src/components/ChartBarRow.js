@@ -1,6 +1,6 @@
 import React , {Component} from "react";
 import {connect} from "react-redux";
-import {Bars,Chart,Layer , Ticks,Transform} from "rumble-charts";
+import {Bars,Chart,Layer , Ticks,Transform,Title} from "rumble-charts";
 import series from "../data";
 
 class ChartBarRow extends Component {
@@ -9,7 +9,7 @@ class ChartBarRow extends Component {
     }
 
     render() {
-        let {sufix,prefix} = this.props.numberFormat;
+        let {sufix,prefix,format} = this.props.numberFormat;
         let {reverseX,reverseY} = this.props.axis;
         return (
           <Chart width={this.props.width}
@@ -25,7 +25,7 @@ class ChartBarRow extends Component {
                   axis='y'
                   lineLength='90%'
                   lineOffset = "0%"
-                  labelFormat = {(label) => `${sufix} ${label} ${prefix}`}
+                  labelFormat = {(label) => `${sufix} ${label*(format*1000)/1000} ${prefix}`}
                   lineVisible={this.props.axis.y}
                   lineStyle={{stroke:'lightgray'}}
                   labelStyle={{textAnchor:'middle',dominantBaseline:'start',fill:'lightgray'}}
@@ -46,8 +46,15 @@ class ChartBarRow extends Component {
                           groupPadding = "3%"
                           combined = {this.props.combined}
                           />
+
                     </Transform >
+                    <Title position='top center' style={{textAnchor:'middle'}}
+                    style = {{fill:"red"}}
+                    >
+                     Chart Title
+                   </Title>
               </Layer>
+
           </Chart>
         );
     }

@@ -29,7 +29,7 @@ class ChartPlace extends Component {
       case "line":
         elem = <ChartLine height = {this.props.size.height}
                           width = {this.props.size.width}
-
+                          points = {true}
                           />;
         break;
       case "dots":
@@ -58,10 +58,49 @@ class ChartPlace extends Component {
                              combined = {true}
                                    />;
           break;
+      case "area":
+          elem = <ChartLine height = {this.props.size.height}
+                            width = {this.props.size.width}
+                            area = {true}
+                            points = {false}
+                            />;
+          break;
+      case "areaStacked":
+          elem = <ChartLine height = {this.props.size.height}
+                            width = {this.props.size.width}
+                            area = {true}
+                            transform = {"stack"}
+                            points = {false}
+                            />;
+          break;
+      case "area100":
+          elem = <ChartLine height = {this.props.size.height}
+                            width = {this.props.size.width}
+                            area = {true}
+                            transform = {"stackNormalized"}
+                            points = {false}
+                            />;
+          break;
+      case "areaStepped":
+          elem = <ChartLine height = {this.props.size.height}
+                            width = {this.props.size.width}
+                            area = {true}
+                            transform = {"stackNormalized"}
+                            interpol = {"step"}
+                            points = {false}
+                            />;
+          break;
+      case "lineStepped":
+          elem = <ChartLine height = {this.props.size.height}
+                            width = {this.props.size.width}
+                            interpol = {"step"}
+                            points = {false}
+                            />;
+          break;
     }
     return (
       <div className="chartPlace">
-      
+
           {elem}
           {this.props.activeTable ? <TableForData /> : null}
       </div>

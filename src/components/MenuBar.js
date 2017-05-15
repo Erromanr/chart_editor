@@ -5,70 +5,89 @@ import '../style/MenuBar.css';
 class MenuBar extends Component {
   constructor(props) {
       super(props);
-      this.handlePie = this.handlePie.bind(this);
-      this.handleBar = this.handleBar.bind(this);
-      this.handleLine = this.handleLine.bind(this);
-      this.handleDots = this.handleDots.bind(this);
-      this.handleBarStacked = this.handleBarStacked.bind(this);
-      this.handleBarRow = this.handleBarRow.bind(this);
-      this.handleBarRowStacked = this.handleBarRowStacked.bind(this);
+      this.changeType = this.changeType.bind(this);
+  }
+  changeType(e) {
+      e.preventDefault();
+      this.props.changeType(e.target.id);
+  }
 
-  }
-  handlePie() {
-      this.props.pie();
-  }
-  handleBar() {
-      this.props.bar();
-  }
-  handleLine() {
-      this.props.line();
-  }
-  handleDots() {
-      this.props.dots();
-  }
-  handleBarStacked() {
-      this.props.barStacked();
-  }
-  handleBarRow() {
-      this.props.barRow();
-  }
-  handleBarRowStacked() {
-      this.props.barRowStacked();
-  }
   render() {
     return (
       <div className="menuBar">
-          <div className = "menuBarGroup">
-              <div className = "menuBarPoint" onClick = {this.handleBar}>
+          <div className  = "menuBarGroup">
+              <a href = "#">
+                  <div className = "menuBarPoint" onClick = {this.changeType} id = "bar">
                   Column
-              </div>
-              <div className = "menuBarPoint" onClick = {this.handleBarStacked}>
+                  </div>
+              </a>
+              <a href = "#">
+                  <div className = "menuBarPoint" onClick = {this.changeType} id = "barStacked">
                   Column Stacked
-              </div>
-              <div className = "menuBarPoint" onClick = {this.handleBarRow}>
+                  </div>
+              </a>
+          </div>
+          <div className  = "menuBarGroup">
+              <a href = "#">
+                  <div className = "menuBarPoint" onClick = {this.changeType} id = "barRow">
                   Bar
-              </div>
-              <div className = "menuBarPoint" onClick = {this.handleBarRowStacked}>
+                  </div>
+              </a>
+            <a href = "#">
+                  <div className = "menuBarPoint" onClick = {this.changeType} id = "barRowStacked">
                   Bar Stacked
-              </div>
+                  </div>
+              </a>
           </div>
-          <div className = "menuBarPoint" onClick = {this.handlePie}>
-              Pie
+          <div className  = "menuBarGroup">
+              <a href = "#">
+                  <div className = "menuBarPoint" onClick = {this.changeType} id = "pie">
+                  Pie
+                  </div>
+              </a>
+              <a href = "#">
+                  <div className = "menuBarPoint" onClick = {this.changeType} id = "line">
+                  Line
+                  </div>
+              </a>
           </div>
-          <div className = "menuBarPoint" onClick = {this.handleLine}>
-              Line
+          <div className  = "menuBarGroup">
+              <a href = "#">
+                <div className = "menuBarPoint" onClick = {this.changeType} id = "dots">
+                  Dots
+                </div>
+              </a>
+              <a href = "#">
+                <div className = "menuBarPoint" onClick = {this.changeType} id = "area">
+                  Area
+                </div>
+              </a>
           </div>
-          <div className = "menuBarPoint" onClick = {this.handleDots}>
-              Dots
+          <div className  = "menuBarGroup">
+              <a href = "#">
+                <div className = "menuBarPoint" onClick = {this.changeType} id = "area100">
+                  Area 100%
+                </div>
+              </a>
+              <a href = "#">
+                <div className = "menuBarPoint" onClick = {this.changeType} id = "areaStacked">
+                   Stacked Area
+                </div>
+              </a>
           </div>
-          <div className = "menuBarPoint">
+          <div className  = "menuBarGroup">
+              <a href = "#">
+                <div className = "menuBarPoint" onClick = {this.changeType} id = "areaStepped">
+                  Area Stepped
+                </div>
+              </a>
+              <a href = "#">
+                <div className = "menuBarPoint" onClick = {this.changeType} id = "lineStepped">
+                   Stepped Line
+                </div>
+              </a>
           </div>
-          <div className = "menuBarPoint">
-          </div>
-          <div className = "menuBarPoint">
-          </div>
-          <div className = "menuBarPoint">
-          </div>
+
 
       </div>
     );
@@ -80,26 +99,8 @@ export default connect(
 
   }),
   dispatch =>({
-      pie:() => {
-          dispatch({type:"PIE",payload:"pie"});
-      },
-      bar:() => {
-          dispatch({type:"BAR",payload:"bar"})
-      },
-      line:() => {
-          dispatch({type:"LINE",payload:"line"})
-      },
-      dots:() => {
-          dispatch({type:"DOTS",payload:"dots"})
-      },
-      barStacked:() => {
-          dispatch({type:"BAR_STACKED",payload:"barStacked"})
-      },
-      barRow:() => {
-          dispatch({type:"BAR_ROW",payload:"barRow"});
-      },
-      barRowStacked:() => {
-          dispatch({type:"BAR_ROW_STACKED",payload:"barRowStacked"})
-      },
+      changeType:(value) => {
+          dispatch({type:"CHANGE_TYPE_CHART",payload:value})
+      }
   })
 )(MenuBar);

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import {connect} from "react-redux";
 import '../style/MenuBar.css';
-import {Chart,Pies,Transform} from "rumble-charts";
+import {Chart,Pies,Transform,Title} from "rumble-charts";
 import series from "../data";
 class ChartPie extends Component {
   render() {
+
     return (
         <Chart width={this.props.width}
                height={this.props.height}
@@ -14,7 +15,9 @@ class ChartPie extends Component {
             <Pies combined={true}
                   innerRadius = {this.props.innerRadius}
                 />
+            
           </Transform>
+
         </Chart>
     );
   }

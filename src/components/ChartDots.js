@@ -10,7 +10,7 @@ class ChartDots extends Component {
     }
 
     render() {
-        let {sufix,prefix} = this.props.numberFormat;
+        let {sufix,prefix,format} = this.props.numberFormat;
         let {reverseX,reverseY} = this.props.axis;
         return(
           <Chart width={this.props.width}
@@ -24,7 +24,7 @@ class ChartDots extends Component {
           <Ticks
             axis='y'
             lineLength='100%'
-            labelFormat = {(label) => `${sufix} ${label} ${prefix}`}
+            labelFormat = {(label) => `${sufix} ${label*(format*1000)/1000} ${prefix}`}
             lineVisible={this.props.axis.y}
             lineStyle={{stroke:'lightgray'}}
             labelStyle={{textAnchor:'end',dominantBaseline:'middle',fill:'lightgray'}}

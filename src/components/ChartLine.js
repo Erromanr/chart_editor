@@ -40,8 +40,8 @@ class ChartLine extends Component {
                 labelStyle={{textAnchor:'middle',dominantBaseline:'text-before-edge',fill:'lightgray'}}
 
                 />
-              <Lines />
-              <Dots />
+              <Lines asAreas={this.props.area} interpolation = {this.props.interpol}/>
+              <Dots dotVisible = {this.props.points}/>
               </Transform>
             </Layer>
           </Chart>
