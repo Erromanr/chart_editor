@@ -102,7 +102,7 @@ class ChartPlace extends Component {
       <div className="chartPlace">
 
           {elem}
-          {this.props.activeTable ? <TableForData /> : null}
+
       </div>
     );
   }
@@ -112,7 +112,7 @@ export default connect(
     state => ({
         value:state.chartsType,
         size:state.chartsSize,
-        activeTable:state.activeDataTable,
+        
     }),
     dispatch => ({
 

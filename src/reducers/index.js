@@ -7,9 +7,11 @@ import numberFormat from "./numberFormat";
 import activeTabs from "./activeTabs";
 import dataTable from "./dataTable";
 import activeDataTable from "./activeDataTable";
+import textTitle from "./textTitle";
 
 export default combineReducers({
   pieInnerRadius,
+  textTitle,
   activeDataTable,
   dataTable,
   activeTabs,

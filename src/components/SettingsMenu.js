@@ -5,6 +5,8 @@ import SettingsAxis from "./SettingsAxis";
 import SettingsSize from "./SettingsSize";
 import SettingsNumberFormat from "./SettingsNumberFormat";
 import SettingsDataButton from "./SettingsDataButton";
+import SettingsTitle from "./SettingsTitle";
+import TableForData from "./TableForData";
 
 import '../style/SettingsMenu.css';
 
@@ -18,11 +20,12 @@ class SettingsMenu extends Component {
     return (
       <div className="settingsMenu">
           <SettingsSize />
+            <SettingsTitle />
           <PieRange />
           <SettingsAxis />
           <SettingsNumberFormat />
           <SettingsDataButton />
-        
+          {this.props.activeTable ? <TableForData /> : null}
       </div>
     );
   }
@@ -30,7 +33,7 @@ class SettingsMenu extends Component {
 
 export default connect(
     state => ({
-
+        activeTable:state.activeDataTable,
     }),
     dispatch => ({
 

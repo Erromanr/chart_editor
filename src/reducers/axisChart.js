@@ -1,8 +1,8 @@
 let initialState  = {
-  x:false,
-  y:false,
-  tiksX:0,
-  tiksY:0,
+  x:true,
+  y:true,
+  tiksX:10,
+  tiksY:10,
   reverseX:{
     direction:0
   },

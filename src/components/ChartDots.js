@@ -1,5 +1,5 @@
 import React , {Component} from "react";
-import {Chart,Dots,Lines ,Layer,Ticks} from "rumble-charts";
+import {Chart,Dots,Lines ,Layer,Ticks,Title} from "rumble-charts";
 import {connect} from "react-redux";
 
 import series from "../data";
@@ -41,6 +41,11 @@ class ChartDots extends Component {
 
               />
             <Dots />
+            <Title position='top center'
+            style = {{fill:"red",fontSize:"40px",textAnchor:'middle'}}
+            >
+             {this.props.title}
+           </Title>
           </Layer>
           </Chart>
         );
@@ -53,6 +58,7 @@ export default connect(
         axis:state.axisChart,
         numberFormat:state.numberFormat,
         series:state.dataTable.data,
+        title:state.textTitle,
     }),
     dispatch => ({
 

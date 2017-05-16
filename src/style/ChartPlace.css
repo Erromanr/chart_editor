@@ -1,5 +1,7 @@
 .chartPlace {
     background: black;
+    padding:2%;
+    box-sizing: border-box;
     width: 60%;
     height: 800px;
     float: left;

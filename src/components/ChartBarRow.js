@@ -23,12 +23,13 @@ class ChartBarRow extends Component {
                 <Transform method = {this.props.transform} >
                 <Ticks
                   axis='y'
-                  lineLength='90%'
+                  lineLength='-100%'
                   lineOffset = "0%"
+                  position = "middle"
                   labelFormat = {(label) => `${sufix} ${label*(format*1000)/1000} ${prefix}`}
                   lineVisible={this.props.axis.y}
                   lineStyle={{stroke:'lightgray'}}
-                  labelStyle={{textAnchor:'middle',dominantBaseline:'start',fill:'lightgray'}}
+                  labelStyle={{textAnchor:'middle',dominantBaseline:'text-before-edge',fill:'lightgray'}}
                   ticks = {this.props.axis.tiksY}
                   />
                   <Ticks
@@ -48,10 +49,10 @@ class ChartBarRow extends Component {
                           />
 
                     </Transform >
-                    <Title position='top center' style={{textAnchor:'middle'}}
-                    style = {{fill:"red"}}
+                    <Title position='top center'
+                    style = {{fill:"red",fontSize:"40px",textAnchor:'middle'}}
                     >
-                     Chart Title
+                     {this.props.title}
                    </Title>
               </Layer>
 
@@ -65,6 +66,7 @@ export default connect(
       axis:state.axisChart,
       numberFormat:state.numberFormat,
       series:state.dataTable.data,
+      title:state.textTitle,
   }),
   dispatch => ({
 

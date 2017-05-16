@@ -47,12 +47,13 @@ class ChartBar extends Component {
                           groupPadding = "3%"
                           combined = {this.props.combined}
                           />
-                          <Title position='top center' style={{textAnchor:'middle'}}
-                          style = {{fill:"red"}}
-                          >
-                           Chart Title
-                         </Title>
+
                     </Transform >
+                    <Title position='top center'
+                    style = {{fill:"red",fontSize:"40px",textAnchor:'middle'}}
+                    >
+                     {this.props.title}
+                   </Title>
               </Layer>
           </Chart>
         );
@@ -64,6 +65,7 @@ export default connect(
       axis:state.axisChart,
       numberFormat:state.numberFormat,
       series:state.dataTable.data,
+      title:state.textTitle,
   }),
   dispatch => ({
 

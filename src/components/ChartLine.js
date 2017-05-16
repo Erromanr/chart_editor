@@ -1,5 +1,5 @@
 import React , {Component} from "react";
-import {Chart,Lines ,Layer,Ticks,Dots,Transform} from "rumble-charts";
+import {Chart,Lines ,Layer,Ticks,Dots,Transform,Title} from "rumble-charts";
 import {connect} from "react-redux";
 
 class ChartLine extends Component {
@@ -43,6 +43,11 @@ class ChartLine extends Component {
               <Lines asAreas={this.props.area} interpolation = {this.props.interpol}/>
               <Dots dotVisible = {this.props.points}/>
               </Transform>
+              <Title position='top center'
+              style = {{fill:"red",fontSize:"40px",textAnchor:'middle'}}
+              >
+               {this.props.title}
+             </Title>
             </Layer>
           </Chart>
         );
@@ -55,6 +60,7 @@ export default connect(
         numberFormat:state.numberFormat,
         data:state.dataTable.grid,
         series:state.dataTable.data,
+        title:state.textTitle,
     }),
     dispatch => ({
 
