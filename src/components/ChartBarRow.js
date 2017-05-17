@@ -16,20 +16,20 @@ class ChartBarRow extends Component {
                  height={this.props.height}
                  series={this.props.series}
                  minY={0}
-                 scaleY = {reverseX}
-                 scaleX = {reverseY}
+                 scaleY = {reverseY}
+                 scaleX = {reverseX}
                   >
+          <Transform method = {this.props.transform} >
+
               <Layer width = "80%" height = "80%" position = "middle center" >
-                <Transform method = {this.props.transform} >
+
                 <Ticks
                   axis='y'
-                  lineLength='-100%'
-                  lineOffset = "0%"
-                  position = "middle"
+                  lineLength='100%'
                   labelFormat = {(label) => `${sufix} ${label*(format*1000)/1000} ${prefix}`}
                   lineVisible={this.props.axis.y}
                   lineStyle={{stroke:'lightgray'}}
-                  labelStyle={{textAnchor:'middle',dominantBaseline:'text-before-edge',fill:'lightgray'}}
+                  labelStyle={{textAnchor:'middle',dominantBaseline:'text-after-edge',fill:'lightgray'}}
                   ticks = {this.props.axis.tiksY}
                   />
                   <Ticks
@@ -48,13 +48,13 @@ class ChartBarRow extends Component {
                           combined = {this.props.combined}
                           />
 
-                    </Transform >
-                    <Title position='top center'
-                    style = {{fill:"red",fontSize:"40px",textAnchor:'middle'}}
-                    >
-                     {this.props.title}
-                   </Title>
+                          <Title position='top center'
+                          style = {{fill:"red",fontSize:"40px",textAnchor:'middle'}}
+                          >
+                           {this.props.title}
+                         </Title>
               </Layer>
+              </Transform >
 
           </Chart>
         );

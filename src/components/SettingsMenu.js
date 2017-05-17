@@ -7,8 +7,9 @@ import SettingsNumberFormat from "./SettingsNumberFormat";
 import SettingsDataButton from "./SettingsDataButton";
 import SettingsTitle from "./SettingsTitle";
 import TableForData from "./TableForData";
-
+import SettingsLine from "./SettingsLine";
 import '../style/SettingsMenu.css';
+import SettingsSwitch from "./SettingsSwitch";
 
 class SettingsMenu extends Component {
   constructor(props) {
@@ -20,11 +21,13 @@ class SettingsMenu extends Component {
     return (
       <div className="settingsMenu">
           <SettingsSize />
-            <SettingsTitle />
+          <SettingsTitle />
+          <SettingsSwitch />
           <PieRange />
           <SettingsAxis />
           <SettingsNumberFormat />
           <SettingsDataButton />
+          <SettingsLine />
           {this.props.activeTable ? <TableForData /> : null}
       </div>
     );

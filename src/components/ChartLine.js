@@ -10,6 +10,7 @@ class ChartLine extends Component {
     render() {
         let {sufix,prefix,format} = this.props.numberFormat;
         let {reverseX,reverseY} = this.props.axis;
+        let {point,monotone} = this.props.settingsLine;
         return (
           <Chart width={this.props.width}
                  height={this.props.height}
@@ -17,12 +18,14 @@ class ChartLine extends Component {
                  minY={0}
                  scaleY = {reverseX}
                  scaleX = {reverseY}
+
                  >
           <Layer width = "80%" height = "80%" position = "middle center" >
             <Transform method = {this.props.transform}>
             <Ticks
               axis='y'
               lineLength='100%'
+              
               labelFormat = {(label) => `${sufix} ${label*(format*1000)/1000} ${prefix}`}
               lineVisible={this.props.axis.y}
               lineStyle={{stroke:'lightgray'}}
@@ -34,13 +37,14 @@ class ChartLine extends Component {
                 lineLength='100%'
                 lineOffset = "-100%"
                 label={({index, props}) => props.series[index].name}
-
                 lineVisible={this.props.axis.x}
                 lineStyle={{stroke:'lightgray'}}
                 labelStyle={{textAnchor:'middle',dominantBaseline:'text-before-edge',fill:'lightgray'}}
 
                 />
-              <Lines asAreas={this.props.area} interpolation = {this.props.interpol}/>
+              <Lines asAreas={this.props.area}
+                     interpolation = {this.props.interpol}
+                     />
               <Dots dotVisible = {this.props.points}/>
               </Transform>
               <Title position='top center'
@@ -61,6 +65,7 @@ export default connect(
         data:state.dataTable.grid,
         series:state.dataTable.data,
         title:state.textTitle,
+        settingsLine:state.settingsLine,
     }),
     dispatch => ({
 

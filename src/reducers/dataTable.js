@@ -1,5 +1,6 @@
 import tableData from "../tableData";
 import convertData from "../convertData";
+import convertDataReverse from "../convertDataReverse";
 import series from "../data";
 let initialState = {
   grid:tableData,
@@ -20,6 +21,13 @@ export default function dataTable(state = initialState,action) {
       let dataConvert = convertData(dataC);
       let newObj = Object.assign({},state);
       console.log(dataConvert);
+      newObj.data = dataConvert;
+      return newObj;
+    }
+    if(action.type === "CONVERT_DATA_REVERSE") {
+      let dataC = state.grid.concat();
+      let dataConvert = convertDataReverse(dataC);
+      let newObj = Object.assign({},state);
       newObj.data = dataConvert;
       return newObj;
     }

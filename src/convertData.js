@@ -1,4 +1,4 @@
-export default function convertData(data) {
+export  default function convertData(data) {
     let series = [];
     let seriesTo = [];
     let seriesName = [];
@@ -25,7 +25,8 @@ export default function convertData(data) {
                 val = item.length;
             }
          })
-    for(let i =0 ; i< val; i++) {
+    let value = seriesName.length > val ? seriesName.length : val;
+    for(let i =0 ; i< value; i++) {
         if(seriesName[i]){
             let data = [];
             for(let j=0;j<seriesName.length ; j++) {

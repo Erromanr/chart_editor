@@ -38,14 +38,14 @@ class SettingsAxis extends Component {
         this.props.reverseY(e.target.checked);
     }
     render() {
-        let {x,y,reverseY,reverseX} = this.props.axis;
+        let {x,y,reverseValueY,reverseValueX} = this.props.axis;
         let link = {textDecoration:"none"};
         let tab = (
           <div className = "settingsAxisBlock" >
             <label > axis Y
               <input type = "checkbox"
-                     onClick = {this.handleY}
-                     checked = {y ? "checked" : null}/>
+                     onChange = {this.handleY}
+                     checked = {y}/>
             </label>
             <label> ticks Y
               <input type = "number"
@@ -57,27 +57,20 @@ class SettingsAxis extends Component {
             </label>
             <label > axis X
               <input type = "checkbox"
-                     onClick = {this.handleX}
-                     checked = {x ? "checked" : null}/>
+                     onChange = {this.handleX}
+                     checked = {x}/>
             </label>
-            <label> ticks X
-              <input type = "number"
-                     onChange = {this.handleTicksX}
-                     min = "0"
-                     value = {this.props.axis.tiksX}
-                     max = "20"
-                     />
-            </label>
+    
             <div>
                 <label > Reverse X
                   <input type = "checkbox"
-                         onClick = {this.reverseX}
-                         checked = {reverseX.direction ? "checked" : null}/>
+                         onChange = {this.reverseX}
+                         checked = {reverseValueX}/>
                 </label>
                 <label >Reverse Y
                   <input type = "checkbox"
-                         onClick = {this.reverseY}
-                         checked = {reverseY.direction ? "checked" : null}/>
+                         onChange = {this.reverseY}
+                         checked = {reverseValueY}/>
                 </label>
             </div>
           </div>

@@ -13,6 +13,7 @@ import '../style/ChartPlace.css';
 
 class ChartPlace extends Component {
   render() {
+    let {point,monotone} = this.props.settingsLine;
     let elem;
     switch (this.props.value) {
       case "pie":
@@ -29,7 +30,8 @@ class ChartPlace extends Component {
       case "line":
         elem = <ChartLine height = {this.props.size.height}
                           width = {this.props.size.width}
-                          points = {true}
+                          points = {point}
+                          interpol = {monotone ? "monotone" : "linear"}
                           />;
         break;
       case "dots":
@@ -48,7 +50,7 @@ class ChartPlace extends Component {
       case "barRow":
           elem = <ChartBarRow height = {this.props.size.height}
                              width = {this.props.size.width}
-                             transform = {["rotate"]}
+                             transform = {["unstack","rotate"]}
                                    />;
           break;
       case "barRowStacked":
@@ -94,7 +96,7 @@ class ChartPlace extends Component {
           elem = <ChartLine height = {this.props.size.height}
                             width = {this.props.size.width}
                             interpol = {"step"}
-                            points = {false}
+                            points = {point}
                             />;
           break;
     }
@@ -112,7 +114,7 @@ export default connect(
     state => ({
         value:state.chartsType,
         size:state.chartsSize,
-        
+        settingsLine:state.settingsLine,
     }),
     dispatch => ({
 

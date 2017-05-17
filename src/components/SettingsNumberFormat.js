@@ -36,10 +36,10 @@ class SettingsNumberFormat extends Component {
                      onChange = {this.changeSufix}
                      value = {this.props.number.sufix}/>
               </label>
-              <select onChange = {this.selectChange}>
+              <select onChange = {this.selectChange} defaultValue = {1}>
                 <option value = {100}>100</option>
                 <option value = {10}>10</option>
-                <option selected value = {1}>without changes</option>
+                <option value = {1}>without changes</option>
                 <option value = {0.1}>0.1</option>
                 <option value = {0.01}>0.01</option>
               </select>

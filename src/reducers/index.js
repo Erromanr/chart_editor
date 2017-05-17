@@ -8,9 +8,12 @@ import activeTabs from "./activeTabs";
 import dataTable from "./dataTable";
 import activeDataTable from "./activeDataTable";
 import textTitle from "./textTitle";
-
+import settingsLine from "./settingsLine";
+import switchRC from "./switchRC";
 export default combineReducers({
   pieInnerRadius,
+  switchRC,
+  settingsLine,
   textTitle,
   activeDataTable,
   dataTable,

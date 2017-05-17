@@ -40,7 +40,7 @@ class ChartDots extends Component {
               labelStyle={{textAnchor:'middle',dominantBaseline:'text-before-edge',fill:'lightgray'}}
 
               />
-            <Dots />
+            <Dots dotType = "dot"/>
             <Title position='top center'
             style = {{fill:"red",fontSize:"40px",textAnchor:'middle'}}
             >
