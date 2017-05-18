@@ -4,7 +4,7 @@ import ChartBar from "./ChartBar";
 import ChartLine from "./ChartLine";
 import ChartDots from "./ChartDots";
 import ChartBarRow from "./ChartBarRow";
-
+import ChartRadial from "./ChartRadial";
 import TableForData from "./TableForData";
 
 import {connect} from "react-redux";
@@ -99,12 +99,23 @@ class ChartPlace extends Component {
                             points = {point}
                             />;
           break;
+      case "radialLine":
+          elem =   <ChartRadial height = {this.props.size.height}
+                              width = {this.props.size.width}
+
+                              />;
+          break;
+      case "radialArea":
+          elem =   <ChartRadial height = {this.props.size.height}
+                                width = {this.props.size.width}
+                                area = {true}
+                                transform = 'stack'
+                                />;
+          break;
     }
     return (
       <div className="chartPlace">
-
           {elem}
-
       </div>
     );
   }

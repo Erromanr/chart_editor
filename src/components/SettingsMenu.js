@@ -18,16 +18,34 @@ class SettingsMenu extends Component {
   }
 
   render() {
+    let individualMenu ;
+    switch(this.props.value) {
+      case "line":
+          individualMenu = (
+              <div>
+                  <SettingsLine />
+              </div>
+          );
+          break;
+      case "pie":
+          individualMenu = (
+              <div>
+                  <PieRange />
+              </div>
+          );
+          break;
+
+    }
     return (
       <div className="settingsMenu">
-          <SettingsSize />
-          <SettingsTitle />
-          <SettingsSwitch />
-          <PieRange />
           <SettingsAxis />
           <SettingsNumberFormat />
           <SettingsDataButton />
-          <SettingsLine />
+          <SettingsSize />
+          <SettingsTitle />
+          {individualMenu}
+          <SettingsSwitch />
+
           {this.props.activeTable ? <TableForData /> : null}
       </div>
     );
@@ -37,6 +55,7 @@ class SettingsMenu extends Component {
 export default connect(
     state => ({
         activeTable:state.activeDataTable,
+        value:state.chartsType,
     }),
     dispatch => ({
 

@@ -1,5 +1,5 @@
 import React , {Component} from "react";
-import {Chart,Dots,Lines ,Layer,Ticks,Title} from "rumble-charts";
+import {Chart,Dots,Lines ,Layer,Ticks,Title,Animate} from "rumble-charts";
 import {connect} from "react-redux";
 
 import series from "../data";
@@ -21,6 +21,7 @@ class ChartDots extends Component {
                  scaleX = {reverseY}
                  >
           <Layer width = "80%" height = "80%" position = "middle center" >
+      
           <Ticks
             axis='y'
             lineLength='100%'
@@ -46,6 +47,7 @@ class ChartDots extends Component {
             >
              {this.props.title}
            </Title>
+
           </Layer>
           </Chart>
         );

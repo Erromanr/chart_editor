@@ -1,6 +1,6 @@
 import React , {Component} from "react";
 import {connect} from "react-redux";
-import {Bars,Chart,Layer , Ticks,Transform,Title} from "rumble-charts";
+import {Bars,Chart,Layer , Ticks,Transform,Title,Labels,Dots,Animate} from "rumble-charts";
 import series from "../data";
 
 class ChartBar extends Component {
@@ -21,6 +21,7 @@ class ChartBar extends Component {
                  scaleX = {reverseY}
                   >
               <Layer width = "80%" height = "80%" position = "middle center" >
+
                 <Transform method = {this.props.transform} >
                 <Ticks
                   axis='y'
@@ -44,9 +45,10 @@ class ChartBar extends Component {
 
                     <Bars colors='category10'
                           innerPadding='0.5%'
-                          groupPadding = "3%"
+                          groupPadding = "1%"
                           combined = {this.props.combined}
                           />
+
 
                     </Transform >
                     <Title position='top center'
@@ -54,6 +56,7 @@ class ChartBar extends Component {
                     >
                      {this.props.title}
                    </Title>
+
               </Layer>
           </Chart>
         );

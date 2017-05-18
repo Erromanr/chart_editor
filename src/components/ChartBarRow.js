@@ -1,6 +1,6 @@
 import React , {Component} from "react";
 import {connect} from "react-redux";
-import {Bars,Chart,Layer , Ticks,Transform,Title} from "rumble-charts";
+import {Bars,Chart,Layer , Ticks,Transform,Title,Animate} from "rumble-charts";
 import series from "../data";
 
 class ChartBarRow extends Component {
@@ -53,7 +53,9 @@ class ChartBarRow extends Component {
                           >
                            {this.props.title}
                          </Title>
+              
               </Layer>
+
               </Transform >
 
           </Chart>

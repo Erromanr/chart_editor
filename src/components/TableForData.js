@@ -10,9 +10,14 @@ class TableForData extends Component {
         this.change = this.change.bind(this);
     }
     change(...mass) {
-        console.log(arguments)
         this.props.changeData(mass);
-        this.props.convertData();
+        if(this.props.checkConverter) {
+            this.props.convertSwitchData();
+          
+        }
+        else {
+            this.props.convertData();
+        }
     }
     render() {
         return (
@@ -32,6 +37,7 @@ class TableForData extends Component {
 export default connect(
     state => ({
         data:state.dataTable.grid,
+        checkConverter:state.switchRC,
     }),
     dispatch => ({
         changeData:(value) => {
@@ -39,6 +45,9 @@ export default connect(
         },
         convertData:() => {
             dispatch({type:"CONVERT_DATA"});
+        },
+        convertSwitchData:() => {
+            dispatch({type:"CONVERT_DATA_REVERSE"})
         }
 
     })

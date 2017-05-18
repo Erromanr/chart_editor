@@ -8,7 +8,7 @@ const series = [
   data:[11,22,5]
 },
 {
-  name:"romam",
+  name:"roman",
   data:[23,2,66],
 },
 

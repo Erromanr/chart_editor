@@ -19,6 +19,7 @@ class SettingsSwitch extends Component {
     render() {
         return (
             <div>
+                <hr/>
                 <label > switch rows and columns
                 <input type = "checkbox"
                        checked = {this.props.check}

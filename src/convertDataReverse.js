@@ -28,8 +28,12 @@ export default function convertDataReverse(data) {
 
 
     })
-    console.log(seriesTo,columnName);
-    let value = columnName.length > seriesTo.length ? columnName.length : seriesTo.length;
+    seriesTo.map((item) => {
+             if(val < item.length) {
+                  val = item.length;
+              }
+           })
+    let value = columnName.length > val ? columnName.length :val;
     for(let i =0 ; i< value; i++) {
        if(columnName[i]) {
             finalSeries.push({

@@ -1,5 +1,5 @@
 import React , {Component} from "react";
-import {Chart,Lines ,Layer,Ticks,Dots,Transform,Title} from "rumble-charts";
+import {Chart,Lines ,Layer,Ticks,Dots,Transform,Title,Animate} from "rumble-charts";
 import {connect} from "react-redux";
 
 class ChartLine extends Component {
@@ -12,6 +12,7 @@ class ChartLine extends Component {
         let {reverseX,reverseY} = this.props.axis;
         let {point,monotone} = this.props.settingsLine;
         return (
+          <div>
           <Chart width={this.props.width}
                  height={this.props.height}
                  series={this.props.series}
@@ -25,7 +26,7 @@ class ChartLine extends Component {
             <Ticks
               axis='y'
               lineLength='100%'
-              
+
               labelFormat = {(label) => `${sufix} ${label*(format*1000)/1000} ${prefix}`}
               lineVisible={this.props.axis.y}
               lineStyle={{stroke:'lightgray'}}
@@ -46,14 +47,17 @@ class ChartLine extends Component {
                      interpolation = {this.props.interpol}
                      />
               <Dots dotVisible = {this.props.points}/>
+
               </Transform>
               <Title position='top center'
               style = {{fill:"red",fontSize:"40px",textAnchor:'middle'}}
               >
                {this.props.title}
              </Title>
+
             </Layer>
           </Chart>
+          </div>
         );
     }
 }

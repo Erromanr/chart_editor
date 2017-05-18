@@ -20,7 +20,6 @@ export default function dataTable(state = initialState,action) {
       let dataC = state.grid.concat();
       let dataConvert = convertData(dataC);
       let newObj = Object.assign({},state);
-      console.log(dataConvert);
       newObj.data = dataConvert;
       return newObj;
     }

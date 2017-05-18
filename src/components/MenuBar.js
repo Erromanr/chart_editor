@@ -87,6 +87,18 @@ class MenuBar extends Component {
                 </div>
               </a>
           </div>
+          <div className  = "menuBarGroup">
+              <a href = "#">
+                <div className = "menuBarPoint" onClick = {this.changeType} id = "radialLine">
+                  Radial Line
+                </div>
+              </a>
+              <a href = "#">
+                <div className = "menuBarPoint" onClick = {this.changeType} id = "radialArea">
+                   Radial Area
+                </div>
+              </a>
+          </div>
 
 
       </div>
