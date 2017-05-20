@@ -47,6 +47,7 @@ class ChartBar extends Component {
                           innerPadding='0.5%'
                           groupPadding = "1%"
                           combined = {this.props.combined}
+                          colors = {this.props.colors}
                           />
 
 
@@ -69,6 +70,7 @@ export default connect(
       numberFormat:state.numberFormat,
       series:state.dataTable.data,
       title:state.textTitle,
+      colors:state.colors,
   }),
   dispatch => ({
 

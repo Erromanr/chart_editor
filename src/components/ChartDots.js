@@ -21,7 +21,7 @@ class ChartDots extends Component {
                  scaleX = {reverseY}
                  >
           <Layer width = "80%" height = "80%" position = "middle center" >
-      
+
           <Ticks
             axis='y'
             lineLength='100%'
@@ -41,7 +41,8 @@ class ChartDots extends Component {
               labelStyle={{textAnchor:'middle',dominantBaseline:'text-before-edge',fill:'lightgray'}}
 
               />
-            <Dots dotType = "dot"/>
+            <Dots dotType = "dot"
+                  colors = {this.props.colors}/>
             <Title position='top center'
             style = {{fill:"red",fontSize:"40px",textAnchor:'middle'}}
             >
@@ -61,6 +62,7 @@ export default connect(
         numberFormat:state.numberFormat,
         series:state.dataTable.data,
         title:state.textTitle,
+        colors:state.colors,
     }),
     dispatch => ({
 

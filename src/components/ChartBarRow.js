@@ -46,6 +46,7 @@ class ChartBarRow extends Component {
                           innerPadding='0.5%'
                           groupPadding = "3%"
                           combined = {this.props.combined}
+                          colors = {this.props.colors}
                           />
 
                           <Title position='top center'
@@ -53,7 +54,7 @@ class ChartBarRow extends Component {
                           >
                            {this.props.title}
                          </Title>
-              
+
               </Layer>
 
               </Transform >
@@ -69,6 +70,7 @@ export default connect(
       numberFormat:state.numberFormat,
       series:state.dataTable.data,
       title:state.textTitle,
+      colors:state.colors,
   }),
   dispatch => ({
 

@@ -15,6 +15,7 @@ class ChartPie extends Component {
           <Transform method={['transpose', 'stack']}>
             <Pies combined={true}
                   innerRadius = {this.props.innerRadius}
+                  colors = {this.props.colors}
                 />
 
           </Transform>
@@ -34,7 +35,7 @@ export default connect(
           innerRadius:state.pieInnerRadius,
           series:state.dataTable.data,
           title:state.textTitle,
-
+          colors:state.colors,
     }),
     dispatch => ({
 
