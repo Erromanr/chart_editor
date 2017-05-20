@@ -24,7 +24,9 @@ export default function convertDataReverse(data) {
                 }
             }
         })
-        seriesTo.push(mass);
+        if(mass.length !== 0) {
+           seriesTo.push(mass);
+       }
 
 
     })
@@ -33,7 +35,7 @@ export default function convertDataReverse(data) {
                   val = item.length;
               }
            })
-    let value = columnName.length > val ? columnName.length :val;
+     let value = columnName.length > seriesTo.length ? columnName.length :seriesTo.length;
     for(let i =0 ; i< value; i++) {
        if(columnName[i]) {
             finalSeries.push({

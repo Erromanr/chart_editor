@@ -19,34 +19,49 @@ class SettingsMenu extends Component {
 
   render() {
     let individualMenu ;
-    switch(this.props.value) {
-      case "line":
-          individualMenu = (
-              <div>
-                  <SettingsLine />
-              </div>
-          );
-          break;
-      case "pie":
-          individualMenu = (
-              <div>
-                  <PieRange />
-              </div>
-          );
-          break;
-
+    let activeData;
+    if(this.props.activeTable) {
+        activeData = (
+          <div>
+          <TableForData />
+          <SettingsDataButton text = "Hide"/>
+          </div>
+        ) ;
     }
-    return (
-      <div className="settingsMenu">
+    else {
+      switch(this.props.value) {
+        case "line":
+            individualMenu = (
+                <div>
+                    <SettingsLine />
+                </div>
+            );
+            break;
+        case "pie":
+            individualMenu = (
+                <div>
+                    <PieRange />
+                </div>
+            );
+            break;
+
+      }
+        activeData = (
+          <div>
           <SettingsAxis />
           <SettingsNumberFormat />
-          <SettingsDataButton />
+          <SettingsDataButton text = "Edit Data"/>
           <SettingsSize />
           <SettingsTitle />
           {individualMenu}
           <SettingsSwitch />
+          </div>
+        )
+    }
 
-          {this.props.activeTable ? <TableForData /> : null}
+    return (
+      <div className="settingsMenu">
+          {activeData}
       </div>
     );
   }

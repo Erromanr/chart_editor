@@ -14,35 +14,36 @@ let tableData =
          [
            {readOnly: true, value: 1},
            {value: "",readOnly:true},
-           {value: ""},
-           {value: ""},
-           {value: ""},
+           {value: "gold"},
+           {value: "silver"},
+           {value: "bronze"},
            {value: ""},
            {value: ""},
            {value: ""}
          ],
          [
            {readOnly: true, value: 2},
-           {value: "john",label:true},
-           {value: 33},
-           {value: 11},
-           {value: 23},
+           {value: "USA",label:true},
+           {value: 46},
+           {value: 37},
+           {value: 38},
            {value: ""},
            {value: ""},
            {value: ""}
+
          ],
          [
            {readOnly: true, value: 3},
-           {value: "james",label:true},
-           {value: 2},
-           {value: 22},
-           {value: 2},
+           {value: "UK",label:true},
+           {value: 27},
+           {value: 23},
+           {value: 17},
            {value: ""},
            {value: ""},
            {value: ""}
          ],
         [
-          {readOnly: true, value: 4}, {value: "roman"  ,label:true}, {value:"3"}, {value: "5"}, {value: "66"},{value: ""}, {value: ""}, {value: ""}],
+          {readOnly: true, value: 4}, {value: "China"  ,label:true}, {value:26}, {value:18}, {value:26},{value: ""}, {value: ""}, {value: ""}],
         [
           {readOnly: true, value: 5}, {value: "" ,label:true}, {value: ""}, {value: ""}, {value: ""},{value: ""}, {value: ""}, {value: ""}],
         [

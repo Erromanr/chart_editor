@@ -1,7 +1,7 @@
 let initialState  = {
-  axis:false,
+  axis:true,
   colors:false,
-  numberFormat:false,
+  numberFormat:true,
 }
 
 export default function activeTabs(state = initialState,action) {

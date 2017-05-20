@@ -1,15 +1,15 @@
 const series = [
 {
-  name:"john",
-  data:[33,2,3]
+  name:"USA",
+  data:[46,27,26]
 },
 {
-  name:"james",
-  data:[11,22,5]
+  name:"UK",
+  data:[37,23,18]
 },
 {
-  name:"roman",
-  data:[23,2,66],
+  name:"China",
+  data:[38,17,26],
 },
 
 ];

@@ -13,7 +13,8 @@ class SettingsTitle extends Component {
     render()  {
         return (
             <div>
-                <label>title
+                <hr/>
+                <label> Enter title
                 <input type = "text"
                        value = {this.props.title}
                         onChange = {this.changeTitle}

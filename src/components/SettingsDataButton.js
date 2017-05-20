@@ -17,7 +17,7 @@ class SettingsDataButton extends Component {
         return (
             <a href = "/" onClick = {this.handleLink} style ={{textDecoration:"none"}}>
                 <div className = "settingsDataButton">
-                    Edit Data
+                    {this.props.text}
                 </div>
             </a>
         )

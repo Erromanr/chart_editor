@@ -16,6 +16,8 @@ class SettingsSize extends Component {
     render() {
         return(
             <div>
+                <hr/>
+                <label>Height
                 <input type = "number"
                        min = "0"
                        max = "1000"
@@ -23,6 +25,8 @@ class SettingsSize extends Component {
                        onChange = {this.handleHeigth}
                        value = {this.props.size.height}
                        />
+                </label>
+                <label> width
                 <input type = "number"
                        min = "0"
                        max = "1000"
@@ -30,7 +34,7 @@ class SettingsSize extends Component {
                        onChange = {this.handleWidth}
                        value = {this.props.size.width}
                        />
-
+                </label>
             </div>
         );
     }

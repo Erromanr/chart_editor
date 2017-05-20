@@ -20,8 +20,8 @@ class SettingsLine extends Component {
 
         return (
             <div>
-                <span>settings line</span>
                 <hr/>
+                <p>settings line</p>
                 <label>point
                     <input type = "checkbox"
 

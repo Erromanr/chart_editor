@@ -12,13 +12,18 @@ class PieRange extends Component {
     }
     render() {
         return (
+            <div>
+            <hr/>
+            <label> Pie radius
             <input type = "range"
                    onChange = {this.handleRange}
                     min="0"
                     max="100"
                     step="1"
+                    value = {this.props.radius}
                    />
-            
+            </label>
+            </div>
         );
     }
 }
@@ -26,7 +31,7 @@ class PieRange extends Component {
 
 export default connect(
     state => ({
-
+        radius:state.pieInnerRadius,
     }),
     dispatch => ({
         range:(value) => {

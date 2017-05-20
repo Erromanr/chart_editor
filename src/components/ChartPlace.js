@@ -116,6 +116,7 @@ class ChartPlace extends Component {
     return (
       <div className="chartPlace">
           {elem}
+        
       </div>
     );
   }
