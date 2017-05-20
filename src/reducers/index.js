@@ -10,8 +10,11 @@ import activeDataTable from "./activeDataTable";
 import textTitle from "./textTitle";
 import settingsLine from "./settingsLine";
 import switchRC from "./switchRC";
+import colors from "./colors";
+
 export default combineReducers({
   pieInnerRadius,
+  colors,
   switchRC,
   settingsLine,
   textTitle,

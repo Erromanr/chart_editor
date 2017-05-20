@@ -5,6 +5,7 @@ import series from "../data";
 let initialState = {
   grid:tableData,
   data:series,
+  nameList:["gold","silver","bronze"],
 };
 export default function dataTable(state = initialState,action) {
     if(action.type === "TEST") {
@@ -20,14 +21,16 @@ export default function dataTable(state = initialState,action) {
       let dataC = state.grid.concat();
       let dataConvert = convertData(dataC);
       let newObj = Object.assign({},state);
-      newObj.data = dataConvert;
+      newObj.data = dataConvert.data;
+      newObj.nameList = dataConvert.nameList;
       return newObj;
     }
     if(action.type === "CONVERT_DATA_REVERSE") {
       let dataC = state.grid.concat();
       let dataConvert = convertDataReverse(dataC);
       let newObj = Object.assign({},state);
-      newObj.data = dataConvert;
+      newObj.data = dataConvert.data;
+      newObj.nameList = dataConvert.nameList
       return newObj;
     }
     return state;

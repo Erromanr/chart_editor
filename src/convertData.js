@@ -54,5 +54,16 @@ export  default function convertData(data) {
         }
 
     }
-    return finalSeries;
+    let mass = [];
+    let name = data.slice(1,2);
+    name[0].map( item  =>{
+        if(!item.readOnly && item.value !== "" ) {
+            mass.push(item.value);
+        }}
+    )
+    
+    return {
+      nameList:mass,
+      data:finalSeries
+    };
 }

@@ -45,8 +45,10 @@ class ChartLine extends Component {
                 />
               <Lines asAreas={this.props.area}
                      interpolation = {this.props.interpol}
+                     colors = {this.props.colors}
                      />
-              <Dots dotVisible = {this.props.points}/>
+              <Dots dotVisible = {this.props.points}
+                    colors = {this.props.colors}/>
 
               </Transform>
               <Title position='top center'
@@ -70,6 +72,7 @@ export default connect(
         series:state.dataTable.data,
         title:state.textTitle,
         settingsLine:state.settingsLine,
+        colors:state.colors,
     }),
     dispatch => ({
 

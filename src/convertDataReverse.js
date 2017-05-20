@@ -5,6 +5,16 @@ export default function convertDataReverse(data) {
     let finalSeries = [];
     let val = 0;
 
+    let array = data.slice(2);
+    array.map((item) => {
+        item.map((item) => {
+            if(!item.readOnly && item.value !== "") {
+                if(item.label) {
+                    seriesName.push(item.value);
+                }
+            }
+        })
+      });
 
     let name = [];
     data[1].map(item => {
@@ -49,5 +59,8 @@ export default function convertDataReverse(data) {
         })
        }
     }
-    return finalSeries;
+    return {
+      nameList:seriesName,
+      data:finalSeries
+    };
 }

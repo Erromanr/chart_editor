@@ -12,7 +12,7 @@ export default function activeTabs(state = initialState,action) {
         return Object.assign({},state , {axis:false});
     }
     if(action.type === "ACTIVE_COLORS_TAB") {
-        return Object.assign({},state , {colors:true});
+        return Object.assign({},state , {colors:!state.colors});
     }
     if(action.type === "NOT_ACTIVE_COLORS_TAB") {
         return Object.assign({},state , {colors:false});

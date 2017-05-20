@@ -10,6 +10,7 @@ import TableForData from "./TableForData";
 import SettingsLine from "./SettingsLine";
 import '../style/SettingsMenu.css';
 import SettingsSwitch from "./SettingsSwitch";
+import SettingsColor from "./SettingsColor";
 
 class SettingsMenu extends Component {
   constructor(props) {
@@ -50,6 +51,7 @@ class SettingsMenu extends Component {
           <div>
           <SettingsAxis />
           <SettingsNumberFormat />
+          <SettingsColor />
           <SettingsDataButton text = "Edit Data"/>
           <SettingsSize />
           <SettingsTitle />
