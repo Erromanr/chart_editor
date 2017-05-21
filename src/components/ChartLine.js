@@ -11,6 +11,7 @@ class ChartLine extends Component {
         let {sufix,prefix,format} = this.props.numberFormat;
         let {reverseX,reverseY} = this.props.axis;
         let {point,monotone} = this.props.settingsLine;
+        let {labelX,labelY} = this.props.label;
         return (
           <div>
           <Chart width={this.props.width}
@@ -21,7 +22,31 @@ class ChartLine extends Component {
                  scaleX = {reverseY}
 
                  >
-          <Layer width = "80%" height = "80%" position = "middle center" >
+           <Layer width = "100%" height ="10%" position = "top center">
+               <Title
+               style = {{fill:"red",fontSize:"40px",textAnchor:'middle',dominantBaseline:"text-before-edge"}}
+               >
+                {this.props.title}
+              </Title>
+          </Layer>
+          <Layer width = "100%" height ="10%" position = "bottom center">
+              <Title
+              style = {{fill:"red",fontSize:"20px",textAnchor:'middle',dominantBaseline:"middle"}}
+              >
+               {labelX}
+             </Title>
+         </Layer>
+         <Layer width = "10%" height ="10%" position = "middle left">
+             <Title
+             style = {{fill:"red",fontSize:"20px",
+                       textAnchor:"middle",
+                       dominantBaseline:"middle",
+                        writingMode:"tb"}}
+             >
+              {labelY}
+            </Title>
+        </Layer>
+          <Layer width = "85%" height = "60%" position = "middle right" >
             <Transform method = {this.props.transform}>
             <Ticks
               axis='y'
@@ -32,6 +57,7 @@ class ChartLine extends Component {
               lineStyle={{stroke:'lightgray'}}
               labelStyle={{textAnchor:'end',dominantBaseline:'middle',fill:'lightgray'}}
               ticks = {this.props.axis.tiksY}
+
               />
               <Ticks
                 axis='x'
@@ -51,13 +77,8 @@ class ChartLine extends Component {
                     colors = {this.props.colors}/>
 
               </Transform>
-              <Title position='top center'
-              style = {{fill:"red",fontSize:"40px",textAnchor:'middle'}}
-              >
-               {this.props.title}
-             </Title>
-
             </Layer>
+
           </Chart>
           </div>
         );
@@ -73,6 +94,7 @@ export default connect(
         title:state.textTitle,
         settingsLine:state.settingsLine,
         colors:state.colors,
+        label:state.axisLabel,
     }),
     dispatch => ({
 

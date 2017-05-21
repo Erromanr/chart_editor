@@ -13,6 +13,16 @@ class SettingsAxis extends Component {
         this.handleTab = this.handleTab.bind(this);
         this.reverseX = this.reverseX.bind(this);
         this.reverseY = this.reverseY.bind(this);
+        this.changeLabelX = this.changeLabelX.bind(this);
+        this.changeLabelY = this.changeLabelY.bind(this);
+    }
+    changeLabelX(e) {
+        let val = this.refs.labelX.value;
+        this.props.labelX(val);
+    }
+    changeLabelY(e) {
+        let val = this.refs.labelY.value;
+        this.props.labelY(val);
     }
     handleY(e) {
         this.props.axisY(e.target.checked);
@@ -40,6 +50,8 @@ class SettingsAxis extends Component {
     render() {
         let {x,y,reverseValueY,reverseValueX} = this.props.axis;
         let link = {textDecoration:"none"};
+        let {labelX,labelY} = this.props.label;
+
         let tab = (
           <div className = "settingsAxisBlock" >
             <label > axis Y
@@ -60,7 +72,7 @@ class SettingsAxis extends Component {
                      onChange = {this.handleX}
                      checked = {x}/>
             </label>
-    
+
             <div>
                 <label > Reverse X
                   <input type = "checkbox"
@@ -72,6 +84,24 @@ class SettingsAxis extends Component {
                          onChange = {this.reverseY}
                          checked = {reverseValueY}/>
                 </label>
+            </div>
+            <div>
+                <label> Label X
+                  <input type = "text"
+                         onChange = {this.changeLabelX}
+                         value = {labelX}
+                         className = "settingsAxisInput"
+                         ref = "labelX"
+                         />
+                </label>
+                <label> Label Y
+                    <input type = "text"
+                           onChange = {this.changeLabelY}
+                           value = {labelY}
+                           className = "settingsAxisInput"
+                           ref = "labelY"
+                           />
+               </label>
             </div>
           </div>
         );
@@ -92,6 +122,7 @@ class SettingsAxis extends Component {
 export default connect(
     state => ({
         axis:state.axisChart,
+        label:state.axisLabel,
         active:state.activeTabs.axis,
     }),
     dispatch => ({
@@ -116,7 +147,12 @@ export default connect(
       reverseY:(value) => {
           dispatch({type:"REVERSE_Y",payload:value})
       },
-
+      labelX:(value) => {
+          dispatch({type:"AXIS_LABEL_X",payload:value});
+      },
+      labelY:(value) => {
+          dispatch({type:"AXIS_LABEL_Y",payload:value});
+      }
 
     })
 )(SettingsAxis);

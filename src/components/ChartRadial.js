@@ -20,7 +20,14 @@ class ChartRadial extends Component {
                  scaleX = {reverseY}
                  children = {<ChartPie />}
                  >
-                 <Layer width = "100%" height = "80%" position = "middle center" >
+                 <Layer width = "100%" height ="20%" position = "top center">
+                     <Title
+                     style = {{fill:"red",fontSize:"40px",textAnchor:'middle',dominantBaseline:"text-before-edge"}}
+                     >
+                      {this.props.title}
+                    </Title>
+                </Layer>
+                 <Layer width = "100%" height = "80%" position = "bottom center" >
                    <Transform method = {this.props.transform}>
                        <RadialLines
                        interpolation='linear-closed'
@@ -30,13 +37,7 @@ class ChartRadial extends Component {
 
 
                      </Transform>
-                     <Title position='top center'
-                     style = {{fill:"red",fontSize:"40px",textAnchor:'middle'}}
-                     >
-                      {this.props.title}
-                    </Title>
-
-                   </Layer>
+                 </Layer>
               </Chart>
         );
     }

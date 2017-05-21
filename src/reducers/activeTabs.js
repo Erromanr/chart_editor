@@ -1,6 +1,6 @@
 let initialState  = {
   axis:true,
-  colors:false,
+  colors:true,
   numberFormat:true,
 }
 

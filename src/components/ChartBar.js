@@ -11,6 +11,7 @@ class ChartBar extends Component {
     render() {
         let {sufix,prefix,format} = this.props.numberFormat;
         let {reverseX,reverseY} = this.props.axis;
+        let {labelX,labelY} = this.props.label;
         return (
           <Chart width={this.props.width}
                  height={this.props.height}
@@ -20,8 +21,31 @@ class ChartBar extends Component {
                  scaleY = {reverseX}
                  scaleX = {reverseY}
                   >
-              <Layer width = "80%" height = "80%" position = "middle center" >
-
+                  <Layer width = "100%" height ="10%" position = "top center">
+                      <Title
+                      style = {{fill:"red",fontSize:"40px",textAnchor:'middle',dominantBaseline:"text-before-edge"}}
+                      >
+                       {this.props.title}
+                     </Title>
+                 </Layer>
+                 <Layer width = "100%" height ="10%" position = "bottom center">
+                     <Title
+                     style = {{fill:"red",fontSize:"20px",textAnchor:'middle',dominantBaseline:"middle"}}
+                     >
+                      {labelX}
+                    </Title>
+                </Layer>
+                <Layer width = "10%" height ="10%" position = "middle left">
+                    <Title
+                    style = {{fill:"red",fontSize:"20px",
+                              textAnchor:"middle",
+                              dominantBaseline:"middle",
+                               writingMode:"tb"}}
+                    >
+                     {labelY}
+                   </Title>
+               </Layer>
+              <Layer width = "85%" height = "60%" position = "middle right" >
                 <Transform method = {this.props.transform} >
                 <Ticks
                   axis='y'
@@ -52,13 +76,7 @@ class ChartBar extends Component {
 
 
                     </Transform >
-                    <Title position='top center'
-                    style = {{fill:"red",fontSize:"40px",textAnchor:'middle'}}
-                    >
-                     {this.props.title}
-                   </Title>
-
-              </Layer>
+            </Layer>
           </Chart>
         );
     }
@@ -71,6 +89,7 @@ export default connect(
       series:state.dataTable.data,
       title:state.textTitle,
       colors:state.colors,
+      label:state.axisLabel,
   }),
   dispatch => ({
 

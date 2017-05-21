@@ -11,9 +11,11 @@ import textTitle from "./textTitle";
 import settingsLine from "./settingsLine";
 import switchRC from "./switchRC";
 import colors from "./colors";
+import axisLabel from "./axisLabel";
 
 export default combineReducers({
   pieInnerRadius,
+  axisLabel,
   colors,
   switchRC,
   settingsLine,
