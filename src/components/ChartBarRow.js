@@ -12,6 +12,7 @@ class ChartBarRow extends Component {
         let {sufix,prefix,format} = this.props.numberFormat;
         let {reverseX,reverseY} = this.props.axis;
         let {labelX,labelY} = this.props.label;
+        let {colors,oneColor,one} = this.props.colors;
         return (
           <Chart width={this.props.width}
                  height={this.props.height}
@@ -71,7 +72,7 @@ class ChartBarRow extends Component {
                           innerPadding='0.5%'
                           groupPadding = "3%"
                           combined = {this.props.combined}
-                          colors = {this.props.colors}
+                          colors = {oneColor ? one : colors}
                           />
               </Layer>
 

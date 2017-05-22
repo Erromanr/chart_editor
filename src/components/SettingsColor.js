@@ -6,6 +6,8 @@ class SettingsColor extends Component {
         super(props);
         this.handleLink = this.handleLink.bind(this);
         this.changeColors = this.changeColors.bind(this);
+        this.oneColor = this.oneColor.bind(this);
+        this.one = this.one.bind(this);
     }
     handleLink(e) {
         e.preventDefault();
@@ -20,23 +22,35 @@ class SettingsColor extends Component {
         this.props.changePicker(obj)
 
     }
+    oneColor(e) {
+        this.props.oneColor(e.target.checked);
+    }
+    one(e) {
+          this.props.one(e.target.value);
+    }
     render() {
         let {data,activeTab,colors} = this.props;
         let names =[];
+        let oneColor = (
+            <input type = "color"
+                    onChange = {this.one}
+                    value = {this.props.colors.one}
+                    />
+        )
         for(let i = 0 ; i < data.length ;  i++) {
                 names.push(
                   <div key = {data[i]}>
                       <label>
                       <input id = {i}
                              type = "color"
-                             value = {colors[i]}
+                             value = {colors.colors[i]}
                              onChange = {this.changeColors}/>
                       {data[i]}
                       </label>
                   </div>
                 );
             }
-        
+
         return (
             <div className = "color">
               <a href = "/" onClick = {this.handleLink} style = {{textDecoration:"none"}}>
@@ -44,7 +58,17 @@ class SettingsColor extends Component {
                   Colors
               </div>
               </a>
+              <div>
+                  <label> One color for all
+                      <input type = "checkbox"
+                              onChange = {this.oneColor}
+                              checked = {colors.oneColor}/>
+                  </label>
+                  {colors.oneColor ? oneColor : null}
+              </div>
+              <div>
               {activeTab ? names : null}
+              </div>
             </div>
         );
     }
@@ -63,6 +87,12 @@ export default connect(
           },
           changePicker:(obj) => {
               dispatch({type:"CHANGE_COLORS",payload:obj})
+          },
+          oneColor:(value) => {
+              dispatch({type:"ONE_COLOR",payload:value})
+          },
+          one:(val) => {
+              dispatch({type:"CHANGE_COLORS_ONE",payload:val})
           },
     })
 )(SettingsColor);

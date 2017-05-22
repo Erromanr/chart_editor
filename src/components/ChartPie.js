@@ -5,7 +5,7 @@ import {Chart,Pies,Transform,Title,Layer} from "rumble-charts";
 import series from "../data";
 class ChartPie extends Component {
   render() {
-
+      let {colors,oneColor,one} = this.props.colors;
     return (
         <Chart width={this.props.width}
                height={this.props.height}
@@ -22,7 +22,7 @@ class ChartPie extends Component {
           <Transform method={['transpose', 'stack']}>
             <Pies combined={true}
                   innerRadius = {this.props.innerRadius}
-                  colors = {this.props.colors}
+                  colors = {oneColor ? one : colors}
                 />
 
           </Transform>

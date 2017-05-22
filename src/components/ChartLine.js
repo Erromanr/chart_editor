@@ -12,6 +12,7 @@ class ChartLine extends Component {
         let {reverseX,reverseY} = this.props.axis;
         let {point,monotone} = this.props.settingsLine;
         let {labelX,labelY} = this.props.label;
+        let {colors,oneColor,one} = this.props.colors;
         return (
           <div>
           <Chart width={this.props.width}
@@ -71,10 +72,10 @@ class ChartLine extends Component {
                 />
               <Lines asAreas={this.props.area}
                      interpolation = {this.props.interpol}
-                     colors = {this.props.colors}
+                     colors = {oneColor ? one : colors}
                      />
               <Dots dotVisible = {this.props.points}
-                    colors = {this.props.colors}/>
+                  colors = {oneColor ? one : colors}/>
 
               </Transform>
             </Layer>
