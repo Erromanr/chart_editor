@@ -8,6 +8,7 @@ class SettingsColor extends Component {
         this.changeColors = this.changeColors.bind(this);
         this.oneColor = this.oneColor.bind(this);
         this.one = this.one.bind(this);
+        this.fontColor = this.fontColor.bind(this);
     }
     handleLink(e) {
         e.preventDefault();
@@ -28,8 +29,11 @@ class SettingsColor extends Component {
     one(e) {
           this.props.one(e.target.value);
     }
+    fontColor(e) {
+          this.props.changeFontColor(e.target.value);
+    }
     render() {
-        let {data,activeTab,colors} = this.props;
+        let {data,activeTab,colors,fontColor} = this.props;
         let names =[];
         let oneColor = (
             <input type = "color"
@@ -50,7 +54,29 @@ class SettingsColor extends Component {
                   </div>
                 );
             }
-
+          let menu = (
+            <div>
+              <div>
+                  <label> One color for all
+                      <input type = "checkbox"
+                              onChange = {this.oneColor}
+                              checked = {colors.oneColor}/>
+                  </label><br/>
+                  {colors.oneColor ? oneColor : null}
+              </div>
+              <div>
+                  <span> axis and label color </span><br/>
+                      <input type = "color"
+                             value = {fontColor}
+                             onChange = {this.fontColor}
+                             />
+                  <hr/>
+              </div>
+              <div>
+              {names}
+              </div>
+            </div>
+          );
         return (
             <div className = "color">
               <a href = "/" onClick = {this.handleLink} style = {{textDecoration:"none"}}>
@@ -58,17 +84,7 @@ class SettingsColor extends Component {
                   Colors
               </div>
               </a>
-              <div>
-                  <label> One color for all
-                      <input type = "checkbox"
-                              onChange = {this.oneColor}
-                              checked = {colors.oneColor}/>
-                  </label>
-                  {colors.oneColor ? oneColor : null}
-              </div>
-              <div>
-              {activeTab ? names : null}
-              </div>
+            {activeTab ? menu : null}
             </div>
         );
     }
@@ -93,6 +109,9 @@ export default connect(
           },
           one:(val) => {
               dispatch({type:"CHANGE_COLORS_ONE",payload:val})
+          },
+          changeFontColor:(val) => {
+              dispatch({type:"FONT_COLOR",payload:val})
           },
     })
 )(SettingsColor);

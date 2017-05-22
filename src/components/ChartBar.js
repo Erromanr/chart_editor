@@ -12,7 +12,7 @@ class ChartBar extends Component {
         let {sufix,prefix,format} = this.props.numberFormat;
         let {reverseX,reverseY} = this.props.axis;
         let {labelX,labelY} = this.props.label;
-        let {colors,oneColor,one} = this.props.colors;
+        let {colors,oneColor,one,fontColor} = this.props.colors;
         return (
           <Chart width={this.props.width}
                  height={this.props.height}
@@ -22,23 +22,23 @@ class ChartBar extends Component {
                  scaleY = {reverseX}
                  scaleX = {reverseY}
                   >
-                  <Layer width = "100%" height ="10%" position = "top center">
+                  <Layer width = "85%" height ="10%" position = "top right">
                       <Title
                       style = {{fill:"red",fontSize:"40px",textAnchor:'middle',dominantBaseline:"text-before-edge"}}
                       >
                        {this.props.title}
                      </Title>
                  </Layer>
-                 <Layer width = "100%" height ="10%" position = "bottom center">
+                 <Layer width = "85%" height ="10%" position = "bottom right">
                      <Title
-                     style = {{fill:"red",fontSize:"20px",textAnchor:'middle',dominantBaseline:"middle"}}
+                     style = {{fill:fontColor,fontSize:"20px",textAnchor:'middle',dominantBaseline:"middle"}}
                      >
                       {labelX}
                     </Title>
                 </Layer>
                 <Layer width = "10%" height ="10%" position = "middle left">
                     <Title
-                    style = {{fill:"red",fontSize:"20px",
+                    style = {{fill:fontColor,fontSize:"20px",
                               textAnchor:"middle",
                               dominantBaseline:"middle",
                                writingMode:"tb"}}
@@ -53,8 +53,8 @@ class ChartBar extends Component {
                   lineLength='100%'
                   labelFormat = {(label) => `${sufix} ${label*(format*1000)/1000} ${prefix}`}
                   lineVisible={this.props.axis.y}
-                  lineStyle={{stroke:'lightgray'}}
-                  labelStyle={{textAnchor:'end',dominantBaseline:'middle',fill:'lightgray'}}
+                  lineStyle={{stroke:fontColor}}
+                  labelStyle={{textAnchor:'end',dominantBaseline:'middle',fill:fontColor}}
                   ticks = {this.props.axis.tiksY}
                   />
                   <Ticks
@@ -63,14 +63,14 @@ class ChartBar extends Component {
                     lineOffset = "-100%"
                     label={({index, props}) => props.series[index].name}
                     lineVisible={this.props.axis.x}
-                    lineStyle={{stroke:'lightgray'}}
-                    labelStyle={{textAnchor:'middle',dominantBaseline:'text-before-edge',fill:'lightgray'}}
+                    lineStyle={{stroke:fontColor}}
+                    labelStyle={{textAnchor:'middle',dominantBaseline:'text-before-edge',fill:fontColor}}
 
                     />
 
                     <Bars colors='category10'
-                          innerPadding='0.5%'
-                          groupPadding = "1%"
+                          innerPadding='1%'
+                          groupPadding = "3%"
                           combined = {this.props.combined}
                             colors = {oneColor ? one : colors}
                           />

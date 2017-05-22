@@ -1,6 +1,6 @@
 let initialState = {
-  height:300,
-  width:600,
+  height:500,
+  width:700,
 };
 export default function chartsSize(state = initialState,action) {
     if(action.type ==="CHART_HEIGHT") {

@@ -1,6 +1,20 @@
 import React, { Component } from 'react';
 import {connect} from "react-redux";
 import '../style/MenuBar.css';
+import column from "../pictures/column.png"
+import columnStacked from "../pictures/columnStacked.png"
+import bar from "../pictures/bar.png";
+import barStacked from "../pictures/barStacked.png";
+import line from "../pictures/line.png";
+import area from "../pictures/area.png";
+import areaStacked from "../pictures/areaStacked.png";
+import area100 from "../pictures/area100.png";
+import pie from "../pictures/pie.png";
+import dots from "../pictures/dots.png";
+import steppedLine from "../pictures/steppedLine.png";
+import areaStepped from "../pictures/areaStepped.png";
+import radialArea from "../pictures/radialArea.png";
+import radialLine from "../pictures/radialLine.png";
 
 class MenuBar extends Component {
   constructor(props) {
@@ -17,86 +31,72 @@ class MenuBar extends Component {
       <div className="menuBar">
           <div className  = "menuBarGroup">
               <a href = "#">
-                  <div className = "menuBarPoint" onClick = {this.changeType} id = "bar">
-                  Column
-                  </div>
+                  <img src = {column} className = "menuBarPoint" onClick = {this.changeType} id = "bar" />
+                  <span>Column</span>
               </a>
               <a href = "#">
-                  <div className = "menuBarPoint" onClick = {this.changeType} id = "barStacked">
-                  Column Stacked
-                  </div>
+                  <img src = {columnStacked} className = "menuBarPoint" onClick = {this.changeType} id = "barStacked"/>
+                  <span>Column Stack</span>
               </a>
           </div>
           <div className  = "menuBarGroup">
               <a href = "#">
-                  <div className = "menuBarPoint" onClick = {this.changeType} id = "barRow">
-                  Bar
-                  </div>
+                  <img src = {bar} className = "menuBarPoint" onClick = {this.changeType} id = "barRow" />
+                  <span>Bar</span>
               </a>
             <a href = "#">
-                  <div className = "menuBarPoint" onClick = {this.changeType} id = "barRowStacked">
-                  Bar Stacked
-                  </div>
+                  <img src = {barStacked} className = "menuBarPoint" onClick = {this.changeType} id = "barRowStacked" />
+                  <span>Bar Stacked</span>
               </a>
           </div>
           <div className  = "menuBarGroup">
               <a href = "#">
-                  <div className = "menuBarPoint" onClick = {this.changeType} id = "pie">
-                  Pie
-                  </div>
+                  <img src = {pie} className = "menuBarPoint" onClick = {this.changeType} id = "pie" />
+                  <span>Pie</span>
               </a>
               <a href = "#">
-                  <div className = "menuBarPoint" onClick = {this.changeType} id = "line">
-                  Line
-                  </div>
+                  <img src = {line} className = "menuBarPoint" onClick = {this.changeType} id = "line" />
+                  <span>Line</span>
               </a>
           </div>
           <div className  = "menuBarGroup">
               <a href = "#">
-                <div className = "menuBarPoint" onClick = {this.changeType} id = "dots">
-                  Dots
-                </div>
+                <img src = {dots} className = "menuBarPoint" onClick = {this.changeType} id = "dots" />
+                <span>Dots</span>
               </a>
               <a href = "#">
-                <div className = "menuBarPoint" onClick = {this.changeType} id = "area">
-                  Area
-                </div>
+                <img src = {area} className = "menuBarPoint" onClick = {this.changeType} id = "area" />
+                <span>Area</span>
               </a>
           </div>
           <div className  = "menuBarGroup">
               <a href = "#">
-                <div className = "menuBarPoint" onClick = {this.changeType} id = "area100">
-                  Area 100%
-                </div>
+                <img src = {area100} className = "menuBarPoint" onClick = {this.changeType} id = "area100" />
+                <span>Area 100%</span>
               </a>
               <a href = "#">
-                <div className = "menuBarPoint" onClick = {this.changeType} id = "areaStacked">
-                   Stacked Area
-                </div>
+                <img src = {areaStacked} className = "menuBarPoint" onClick = {this.changeType} id = "areaStacked" />
+                <span>Area Stacked</span>
               </a>
           </div>
           <div className  = "menuBarGroup">
               <a href = "#">
-                <div className = "menuBarPoint" onClick = {this.changeType} id = "areaStepped">
-                  Area Stepped
-                </div>
+                <img src = {areaStepped} className = "menuBarPoint" onClick = {this.changeType} id = "areaStepped" />
+                <span>Area Stepped</span>
               </a>
               <a href = "#">
-                <div className = "menuBarPoint" onClick = {this.changeType} id = "lineStepped">
-                   Stepped Line
-                </div>
+                <img src = {steppedLine} className = "menuBarPoint" onClick = {this.changeType} id = "lineStepped" />
+                <span>Line Stepped</span>
               </a>
           </div>
           <div className  = "menuBarGroup">
               <a href = "#">
-                <div className = "menuBarPoint" onClick = {this.changeType} id = "radialLine">
-                  Radial Line
-                </div>
+                <img src = {radialLine} className = "menuBarPoint" onClick = {this.changeType} id = "radialLine" />
+                <span>Radial Line</span>
               </a>
               <a href = "#">
-                <div className = "menuBarPoint" onClick = {this.changeType} id = "radialArea">
-                   Radial Area
-                </div>
+                <img src = {radialArea} className = "menuBarPoint" onClick = {this.changeType} id = "radialArea" />
+                <span>Radial Area</span>
               </a>
           </div>
 

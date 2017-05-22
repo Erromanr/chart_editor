@@ -6,6 +6,11 @@ import series from "../data";
 class ChartPie extends Component {
   render() {
       let {colors,oneColor,one} = this.props.colors;
+      let style = {
+          display:"flex",
+          flexDirection:"row",
+            justifyContent:"space-around",
+      }
     return (
         <Chart width={this.props.width}
                height={this.props.height}
@@ -27,6 +32,7 @@ class ChartPie extends Component {
 
           </Transform>
          </Layer>
+         
         </Chart>
     );
   }

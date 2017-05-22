@@ -4,11 +4,15 @@
     height: 800px;
     overflow: scroll;
     background: silver;
+    padding-top:20px;
+    box-sizing: border-box;
 }
+
 .menuBarPoint {
     width: 100px;
     height: 100px;
     border: solid black 1px;
+    border-radius: 5px;
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -22,9 +26,13 @@
     display: flex;
     flex-direction: row;
     justify-content:space-around;
+    align-items: center;
 }
 .menuBarGroup > a{
-    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-decoration: none;
     color:white;
     font-size: 15px;
