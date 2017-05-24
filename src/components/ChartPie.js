@@ -6,6 +6,7 @@ import series from "../data";
 class ChartPie extends Component {
   render() {
       let {colors,oneColor,one} = this.props.colors;
+      let {radius,combined} = this.props.pie;
       let style = {
           display:"flex",
           flexDirection:"row",
@@ -25,14 +26,15 @@ class ChartPie extends Component {
           </Layer>
           <Layer width = "80%" height = "80%" position = "bottom center" >
           <Transform method={['transpose', 'stack']}>
-            <Pies combined={true}
-                  innerRadius = {this.props.innerRadius}
+            <Pies combined={combined}
+                  innerRadius = {radius}
                   colors = {oneColor ? one : colors}
+
                 />
 
           </Transform>
          </Layer>
-         
+
         </Chart>
     );
   }
@@ -40,7 +42,7 @@ class ChartPie extends Component {
 
 export default connect(
     state => ({
-          innerRadius:state.pieInnerRadius,
+          pie:state.settingsPie,
           series:state.dataTable.data,
           title:state.textTitle,
           colors:state.colors,

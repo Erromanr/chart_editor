@@ -1,0 +1,4 @@
+.settingsDotsContainer{
+    display: flex;
+    flex-direction: column;
+}

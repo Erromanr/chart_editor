@@ -14,6 +14,8 @@ class ChartDots extends Component {
         let {reverseX,reverseY} = this.props.axis;
         let {labelX,labelY} = this.props.label;
         let {colors,oneColor,one,fontColor} = this.props.colors;
+        let {typeDots,radiusDots} = this.props.dots;
+
         return(
           <Chart width={this.props.width}
                  height={this.props.height}
@@ -69,6 +71,9 @@ class ChartDots extends Component {
               />
             <Dots dotType = "dot"
                     colors = {oneColor ? one : colors}
+                    dotType = {typeDots ==='circle' ? 'circle' : 'symbol'}
+                    symbolType= {typeDots}
+                    circleRadius = {radiusDots}
                     />
           </Layer>
           </Chart>
@@ -85,6 +90,7 @@ export default connect(
         title:state.textTitle,
         colors:state.colors,
         label:state.axisLabel,
+        dots:state.settingsDots,
     }),
 
     dispatch => ({

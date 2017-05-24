@@ -1,6 +1,6 @@
 import {combineReducers} from "redux";
 import chartsType from "./chartsType";
-import pieInnerRadius from "./pieInnerRadius";
+import settingsPie from "./settingsPie";
 import axisChart from "./axisChart";
 import chartsSize from "./chartsSize";
 import numberFormat from "./numberFormat";
@@ -12,9 +12,11 @@ import settingsLine from "./settingsLine";
 import switchRC from "./switchRC";
 import colors from "./colors";
 import axisLabel from "./axisLabel";
+import settingsDots from "./settingsDots";
 
 export default combineReducers({
-  pieInnerRadius,
+  settingsPie,
+  settingsDots,
   axisLabel,
   colors,
   switchRC,

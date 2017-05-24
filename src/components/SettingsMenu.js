@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from "react-redux";
-import PieRange from "./PieRange";
+import SettingsPie from "./SettingsPie";
 import SettingsAxis from "./SettingsAxis";
 import SettingsSize from "./SettingsSize";
 import SettingsNumberFormat from "./SettingsNumberFormat";
@@ -11,6 +11,7 @@ import SettingsLine from "./SettingsLine";
 import '../style/SettingsMenu.css';
 import SettingsSwitch from "./SettingsSwitch";
 import SettingsColor from "./SettingsColor";
+import SettingsDots from "./SettingsDots";
 
 class SettingsMenu extends Component {
   constructor(props) {
@@ -41,11 +42,17 @@ class SettingsMenu extends Component {
         case "pie":
             individualMenu = (
                 <div>
-                    <PieRange />
+                    <SettingsPie />
                 </div>
             );
             break;
-
+        case "dots":
+            individualMenu = (
+                <div>
+                    <SettingsDots />
+                </div>
+            );
+            break;
       }
         activeData = (
           <div>

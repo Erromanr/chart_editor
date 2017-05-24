@@ -1,4 +1,4 @@
-let initialState = "line";
+let initialState = "dots";
 export default function chartsType(state = initialState,action) {
     if(action.type ==="PIE") {
         return  action.payload;
