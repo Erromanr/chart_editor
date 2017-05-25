@@ -1,0 +1,4 @@
+.settingsBarContainer {
+    display: flex;
+    flex-direction: column;
+}

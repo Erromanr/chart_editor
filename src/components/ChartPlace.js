@@ -96,7 +96,7 @@ class ChartPlace extends Component {
           elem = <ChartLine height = {this.props.size.height}
                             width = {this.props.size.width}
                             interpol = {"step"}
-                            points = {point}
+                            points = {false}
                             />;
           break;
       case "radialLine":
@@ -116,7 +116,7 @@ class ChartPlace extends Component {
     return (
       <div className="chartPlace">
           {elem}
-        
+
       </div>
     );
   }

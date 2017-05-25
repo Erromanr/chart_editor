@@ -11,6 +11,7 @@ class ChartRadial extends Component {
         let {series} = this.props;
         let {sufix,prefix,format} = this.props.numberFormat;
         let {reverseX,reverseY} = this.props.axis;
+        let {colors, oneColor , one} = this.props.color;
         return (
           <Chart width={this.props.width}
                  height={this.props.height}
@@ -33,6 +34,7 @@ class ChartRadial extends Component {
                        interpolation='linear-closed'
                        lineWidth={2}
                        asAreas={this.props.area}
+                       colors = {oneColor ? one : colors}
                        />
 
 
@@ -50,7 +52,7 @@ export default connect(
         axis:state.axisChart,
         numberFormat:state.numberFormat,
         title:state.textTitle,
-
+        color:state.colors,
     }),
     dispatch => ({
 

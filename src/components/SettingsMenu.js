@@ -12,6 +12,7 @@ import '../style/SettingsMenu.css';
 import SettingsSwitch from "./SettingsSwitch";
 import SettingsColor from "./SettingsColor";
 import SettingsDots from "./SettingsDots";
+import SettingsBar from "./SettingsBar";
 
 class SettingsMenu extends Component {
   constructor(props) {
@@ -50,6 +51,34 @@ class SettingsMenu extends Component {
             individualMenu = (
                 <div>
                     <SettingsDots />
+                </div>
+            );
+            break;
+        case "bar":
+            individualMenu = (
+                <div>
+                    <SettingsBar />
+                </div>
+            );
+            break;
+        case "barRow":
+            individualMenu = (
+                <div>
+                    <SettingsBar />
+                </div>
+            );
+            break;
+        case "barStacked":
+            individualMenu = (
+                <div>
+                    <SettingsBar innerPadding = {20}/>
+                </div>
+            );
+            break;
+        case "barRowStacked":
+            individualMenu = (
+                <div>
+                    <SettingsBar innerPadding = {20}/>
                 </div>
             );
             break;

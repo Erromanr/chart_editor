@@ -1,5 +1,5 @@
 import React , {Component} from "react";
-import {Chart,Dots,Lines ,Layer,Ticks,Title,Animate} from "rumble-charts";
+import {Chart,Dots,Lines ,Layer,Ticks,Title,Labels} from "rumble-charts";
 import {connect} from "react-redux";
 
 import series from "../data";
@@ -75,6 +75,8 @@ class ChartDots extends Component {
                     symbolType= {typeDots}
                     circleRadius = {radiusDots}
                     />
+            <Labels label={({point}) => (point.y)}
+                      colors = {["black"]}/>
           </Layer>
           </Chart>
         );

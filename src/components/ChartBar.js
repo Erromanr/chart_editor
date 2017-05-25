@@ -1,6 +1,6 @@
 import React , {Component} from "react";
 import {connect} from "react-redux";
-import {Bars,Chart,Layer , Ticks,Transform,Title,Labels,Dots,Animate} from "rumble-charts";
+import {Bars,Chart,Layer , Ticks,Transform,Title,Labels,Dots} from "rumble-charts";
 import series from "../data";
 
 class ChartBar extends Component {
@@ -13,6 +13,8 @@ class ChartBar extends Component {
         let {reverseX,reverseY} = this.props.axis;
         let {labelX,labelY} = this.props.label;
         let {colors,oneColor,one,fontColor} = this.props.colors;
+        let {inner,group} = this.props.bar;
+
         return (
           <Chart width={this.props.width}
                  height={this.props.height}
@@ -69,8 +71,8 @@ class ChartBar extends Component {
                     />
 
                     <Bars colors='category10'
-                          innerPadding='1%'
-                          groupPadding = "3%"
+                          innerPadding = {`${inner}%`}
+                          groupPadding = {`${group}%`}
                           combined = {this.props.combined}
                             colors = {oneColor ? one : colors}
                           />
@@ -91,6 +93,7 @@ export default connect(
       title:state.textTitle,
       colors:state.colors,
       label:state.axisLabel,
+      bar:state.settingsBar,
   }),
   dispatch => ({
 

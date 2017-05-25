@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from "react-redux";
 import '../style/MenuBar.css';
-import {Chart,Pies,Transform,Title,Layer} from "rumble-charts";
+import {Chart,Pies,Transform,Title,Layer,Labels} from "rumble-charts";
 import series from "../data";
 class ChartPie extends Component {
   render() {
@@ -31,7 +31,7 @@ class ChartPie extends Component {
                   colors = {oneColor ? one : colors}
 
                 />
-
+        
           </Transform>
          </Layer>
 

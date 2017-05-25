@@ -13,9 +13,11 @@ import switchRC from "./switchRC";
 import colors from "./colors";
 import axisLabel from "./axisLabel";
 import settingsDots from "./settingsDots";
+import settingsBar from "./settingsBar";
 
 export default combineReducers({
   settingsPie,
+  settingsBar,
   settingsDots,
   axisLabel,
   colors,
