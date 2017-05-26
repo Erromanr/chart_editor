@@ -3,7 +3,7 @@ import {Chart,Dots,Lines ,Layer,Ticks,Title,Labels} from "rumble-charts";
 import {connect} from "react-redux";
 
 import series from "../data";
-
+import Legend from "./Legend";
 class ChartDots extends Component {
     constructor(props) {
         super(props);
@@ -17,6 +17,7 @@ class ChartDots extends Component {
         let {typeDots,radiusDots} = this.props.dots;
 
         return(
+          <div>
           <Chart width={this.props.width}
                  height={this.props.height}
                  series={this.props.series}
@@ -37,6 +38,9 @@ class ChartDots extends Component {
                     >
                      {labelX}
                    </Title>
+               </Layer>
+               <Layer width = "85%" height ="10%" position = "bottom right" >
+                  <Legend />
                </Layer>
                <Layer width = "10%" height ="10%" position = "middle left">
                    <Title
@@ -78,7 +82,10 @@ class ChartDots extends Component {
             <Labels label={({point}) => (point.y)}
                       colors = {["black"]}/>
           </Layer>
+
           </Chart>
+
+          </div>
         );
     }
 }

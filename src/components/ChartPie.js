@@ -3,6 +3,8 @@ import {connect} from "react-redux";
 import '../style/MenuBar.css';
 import {Chart,Pies,Transform,Title,Layer,Labels} from "rumble-charts";
 import series from "../data";
+import Legend from "./Legend";
+
 class ChartPie extends Component {
   render() {
       let {colors,oneColor,one} = this.props.colors;
@@ -17,21 +19,24 @@ class ChartPie extends Component {
                height={this.props.height}
                series={this.props.series}
                >
-           <Layer width = "100%" height ="20%" position = "top center">
+           <Layer width = "100%" height ="10%" position = "top center">
                <Title
                style = {{fill:"red",fontSize:"40px",textAnchor:'middle',dominantBaseline:"text-before-edge"}}
                >
                 {this.props.title}
               </Title>
           </Layer>
-          <Layer width = "80%" height = "80%" position = "bottom center" >
+          <Layer width = "85%" height ="10%" position = "bottom right" >
+             <Legend />
+          </Layer>
+          <Layer width = "80%" height = "80%" position = "middle center" >
           <Transform method={['transpose', 'stack']}>
             <Pies combined={combined}
                   innerRadius = {radius}
                   colors = {oneColor ? one : colors}
 
                 />
-        
+
           </Transform>
          </Layer>
 

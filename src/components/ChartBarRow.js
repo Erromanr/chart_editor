@@ -2,6 +2,7 @@ import React , {Component} from "react";
 import {connect} from "react-redux";
 import {Bars,Chart,Layer , Ticks,Transform,Title,Labels} from "rumble-charts";
 import series from "../data";
+import Legend from "./Legend";
 
 class ChartBarRow extends Component {
     constructor(props) {
@@ -37,6 +38,9 @@ class ChartBarRow extends Component {
                    >
                     {labelX}
                   </Title>
+              </Layer>
+              <Layer width = "80%" height ="10%" position = "bottom right" >
+                 <Legend />
               </Layer>
               <Layer width = "10%" height ="10%" position = "middle left">
                   <Title

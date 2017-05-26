@@ -1,6 +1,7 @@
 import React , {Component} from "react";
 import {Chart,Lines ,Layer,Ticks,Dots,Transform,Title,Animate} from "rumble-charts";
 import {connect} from "react-redux";
+import Legend from "./Legend";
 
 class ChartLine extends Component {
     constructor(props) {
@@ -36,6 +37,9 @@ class ChartLine extends Component {
               >
                {labelX}
              </Title>
+         </Layer>
+         <Layer width = "85%" height ="10%" position = "bottom right" >
+            <Legend />
          </Layer>
          <Layer width = "10%" height ="10%" position = "middle left">
              <Title
@@ -73,7 +77,7 @@ class ChartLine extends Component {
               <Lines asAreas={this.props.area}
                      interpolation = {this.props.interpol}
                      colors = {oneColor ? one : colors}
-                     
+
                      />
               <Dots dotVisible = {this.props.points}
                   colors = {oneColor ? one : colors}/>

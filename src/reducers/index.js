@@ -14,9 +14,11 @@ import colors from "./colors";
 import axisLabel from "./axisLabel";
 import settingsDots from "./settingsDots";
 import settingsBar from "./settingsBar";
+import legend from "./legend";
 
 export default combineReducers({
   settingsPie,
+  legend,
   settingsBar,
   settingsDots,
   axisLabel,
