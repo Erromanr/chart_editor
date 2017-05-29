@@ -7,7 +7,7 @@ import Legend from "./Legend";
 
 class ChartPie extends Component {
   render() {
-      let {colors,oneColor,one} = this.props.colors;
+      let {colors,oneColor,one,fontColor} = this.props.colors;
       let {radius,combined} = this.props.pie;
       let style = {
           display:"flex",
@@ -21,7 +21,7 @@ class ChartPie extends Component {
                >
            <Layer width = "100%" height ="10%" position = "top center">
                <Title
-               style = {{fill:"red",fontSize:"40px",textAnchor:'middle',dominantBaseline:"text-before-edge"}}
+               style = {{fill:fontColor,fontSize:"40px",textAnchor:'middle',dominantBaseline:"text-before-edge"}}
                >
                 {this.props.title}
               </Title>

@@ -1,1 +1,15 @@
+input[type = "text"] , select ,input[type = "number"]{
+    background:#212121;
+    color:white;
+    border-radius: 5px;
+    border:solid #212121 1px;
+    height: 25px;
+    font-size: 15px;
+}
+label {
+    color:silver;
+}
 
+.checkboxLabel {
+    color:silver;
+}

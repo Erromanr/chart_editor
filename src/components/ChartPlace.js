@@ -17,7 +17,8 @@ class ChartPlace extends Component {
     let elem;
     let style = {
         width:`${this.props.size.width + 20}px`,
-        height:`${this.props.size.height + 20}px`
+        height:`${this.props.size.height + 20}px`,
+        background:this.props.background,
     }
     switch (this.props.value) {
       case "pie":
@@ -133,6 +134,7 @@ export default connect(
         value:state.chartsType,
         size:state.chartsSize,
         settingsLine:state.settingsLine,
+        background:state.colors.background,
     }),
     dispatch => ({
 

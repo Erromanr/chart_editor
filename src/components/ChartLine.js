@@ -34,7 +34,7 @@ class ChartLine extends Component {
                  >
            <Layer width = "100%" height ="10%" position = "top right">
                <Title
-               style = {{fill:"red",fontSize:"40px",textAnchor:'middle',dominantBaseline:"text-before-edge"}}
+               style = {{fill:fontColor,fontSize:"40px",textAnchor:'middle',dominantBaseline:"text-before-edge"}}
                >
                 {this.props.title}
               </Title>

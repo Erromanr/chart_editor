@@ -11,6 +11,7 @@ class SettingsColor extends Component {
         this.oneColor = this.oneColor.bind(this);
         this.one = this.one.bind(this);
         this.fontColor = this.fontColor.bind(this);
+        this.changeBackground = this.changeBackground.bind(this);
     }
     handleLink(e) {
         e.preventDefault();
@@ -34,8 +35,11 @@ class SettingsColor extends Component {
     fontColor(e) {
           this.props.changeFontColor(e.target.value);
     }
+    changeBackground(e) {
+          this.props.changeBackground(e.target.value)
+    }
     render() {
-        let {data,activeTab,colors,fontColor} = this.props;
+        let {data,activeTab,colors} = this.props;
         let names =[];
         let oneColor = (
             <input type = "color"
@@ -43,6 +47,9 @@ class SettingsColor extends Component {
                     value = {this.props.colors.one}
                     />
         )
+        let checkboxLabel  = {
+            color:"silver",
+        }
         for(let i = 0 ; i < data.length ;  i++) {
                 names.push(
                   <div key = {data[i]}>
@@ -64,17 +71,27 @@ class SettingsColor extends Component {
                               onToggle = {this.oneColor}
                               toggled = {colors.oneColor}
                               labelPosition = "right"
+                              labelStyle = {checkboxLabel}
                               />
 
                   {colors.oneColor ? oneColor : null}
               </div>
               <div>
-                  <span> axis and label color </span><br/>
+                  <label>
                       <input type = "color"
-                             value = {fontColor}
+                             value = {colors.fontColor}
                              onChange = {this.fontColor}
-                             />
+                             />axis and label color
+                  </label>
                   <hr/>
+              </div>
+              <div>
+                <label>
+                    <input type = "color"
+                           value = {colors.background}
+                           onChange = {this.changeBackground}
+                           />background chart
+                </label>
               </div>
               <div>
               {names}
@@ -119,6 +136,9 @@ export default connect(
           },
           changeFontColor:(val) => {
               dispatch({type:"FONT_COLOR",payload:val})
+          },
+          changeBackground:(val) => {
+              dispatch({type:"BACKGROUND_COLOR",payload:val})
           },
     })
 )(SettingsColor);

@@ -23,8 +23,8 @@ class SettingsSize extends Component {
             <div style = {style}>
                 <label>
                 <input type = "number"
-                       min = "0"
-                       max = "1000"
+                       min = "350"
+                       max = "800"
                        step = {5}
                        onChange = {this.handleHeigth}
                        value = {this.props.size.height}
@@ -32,8 +32,8 @@ class SettingsSize extends Component {
                 </label><br/>
                 <label>
                 <input type = "number"
-                       min = "0"
-                       max = "1000"
+                       min = "350"
+                       max = "800"
                        step = {5}
                        onChange = {this.handleWidth}
                        value = {this.props.size.width}

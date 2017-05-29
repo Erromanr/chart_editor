@@ -13,7 +13,7 @@ class ChartRadial extends Component {
         let {series} = this.props;
         let {sufix,prefix,format} = this.props.numberFormat;
         let {reverseX,reverseY} = this.props.axis;
-        let {colors, oneColor , one} = this.props.color;
+        let {colors, oneColor , one,fontColor} = this.props.color;
         return (
           <Chart width={this.props.width}
                  height={this.props.height}
@@ -25,7 +25,7 @@ class ChartRadial extends Component {
                  >
                  <Layer width = "100%" height ="10%" position = "top center">
                      <Title
-                     style = {{fill:"red",fontSize:"40px",textAnchor:'middle',dominantBaseline:"text-before-edge"}}
+                     style = {{fill:fontColor,fontSize:"40px",textAnchor:'middle',dominantBaseline:"text-before-edge"}}
                      >
                       {this.props.title}
                     </Title>

@@ -4,6 +4,7 @@ let initialState = {
   colors:["#FFD700","#B22222","#00FFFF","#FF7F24","#FF00FF",
   "#90EE90","#8B008B","#CD0000","#00EE00","#8B4513","#000080"],
   fontColor:["#d3d3d3"],
+  background:"#424242",
 }
 export default function colors(state = initialState,action) {
     if(action.type === "CHANGE_COLORS") {
@@ -24,6 +25,11 @@ export default function colors(state = initialState,action) {
     if(action.type === "FONT_COLOR") {
       let obj = Object.assign({},state);
       obj.fontColor  = action.payload;
+      return obj;
+    }
+    if(action.type === "BACKGROUND_COLOR") {
+      let obj = Object.assign({},state, {background:action.payload});
+
       return obj;
     }
     return state;

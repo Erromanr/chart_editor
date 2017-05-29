@@ -1,0 +1,6 @@
+.activeTable {
+    float: left;
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+}

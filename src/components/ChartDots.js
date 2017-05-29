@@ -15,12 +15,14 @@ class ChartDots extends Component {
         let {labelX,labelY} = this.props.label;
         let {colors,oneColor,one,fontColor} = this.props.colors;
         let {typeDots,radiusDots} = this.props.dots;
-        let widthChart = sufix || labelY ? "88%" : "95%";
+        let widthChart = sufix || prefix ? "91%" : "95%";
 
+        if (labelY) {
+            widthChart = "90%";
+        }
         if(sufix && labelY || prefix && labelY) {
             widthChart = "85%";
         }
-
         return(
           <div>
           <Chart width={this.props.width}
@@ -32,7 +34,7 @@ class ChartDots extends Component {
                  >
                  <Layer width = "100%" height ="10%" position = "top right">
                      <Title
-                     style = {{fill:"red",fontSize:"40px",textAnchor:'middle',dominantBaseline:"text-before-edge"}}
+                     style = {{fill:fontColor,fontSize:"40px",textAnchor:'middle',dominantBaseline:"text-before-edge"}}
                      >
                       {this.props.title}
                     </Title>

@@ -17,7 +17,7 @@ function Legend(props) {
       for(let i in nameList) {
           if( i < 7) {
               result.push(
-                <g>
+                <g key = {nameList[i]}>
                 <circle cx= {x + padd*i} cy= {y} r="10" fill = {oneColor ? one[0] : colors[i]}/>
                 <text   x = {x + padd*i + 15} y = {y + 5} fill = {fontColor}> {nameList[i]}</text>
                 </g>
@@ -25,7 +25,7 @@ function Legend(props) {
           }
           else {
             result.push(
-              <g>
+              <g key = {nameList[i]}>
               <circle cx= {x + padd*(i - 7)} cy= {y +25} r="10" fill = {oneColor ? one[0] : colors[i]}/>
               <text   x = {x + padd*(i - 7) + 15} y = {y + 30} fill = {fontColor}> {nameList[i]}</text>
               </g>

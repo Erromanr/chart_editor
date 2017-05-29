@@ -1,11 +1,11 @@
 .tableForDataCell {
-    width: 100%;
+    width: 40%;
     height:100%;
     background: white;
 }
 
 .tableForDataContainer{
-    width: 100%;
+    width:inherit;
     height:95%;
     background: white;
     overflow:auto;

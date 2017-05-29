@@ -54,7 +54,9 @@ class SettingsAxis extends Component {
         let {labelX,labelY} = this.props.label;
         let {value} = this.props;
         let disabled  = false;
-
+        let checkboxLabel  = {
+            color:"silver",
+        }
         if( value === "barRowStacked" || value === "barRow") {
 
             disabled = true;
@@ -66,21 +68,24 @@ class SettingsAxis extends Component {
                       labelPosition = "right"
                       onToggle = {this.handleY}
                       toggled = {y}
+                      labelStyle = {checkboxLabel}
                       />
 
-            <label> ticks Y
+            <label>
               <input type = "number"
                      onChange = {this.handleTicksY}
                      min = "0"
                      value = {this.props.axis.tiksY}
                      max = "20"
-                     />
+
+                     />ticks Y
             </label>
 
               <Toggle  label = "axis X"
                        onToggle = {this.handleX}
                        toggled= {x}
                        labelPosition = "right"
+                       labelStyle = {checkboxLabel}
                        />
 
 
@@ -89,7 +94,9 @@ class SettingsAxis extends Component {
                   <Toggle label = "Reverse X"
                           labelPosition = "right"
                           onToggle= {this.reverseX}
-                          toggled = {reverseValueX}/>
+                          toggled = {reverseValueX}
+                          labelStyle = {checkboxLabel}
+                          />
 
 
                   <Toggle label = "Reverse Y"
@@ -97,6 +104,7 @@ class SettingsAxis extends Component {
                           onToggle = {this.reverseY}
                           toggled = {reverseValueY}
                           disabled = {disabled}
+                          labelStyle = {checkboxLabel}
                           />
 
             </div>
@@ -107,6 +115,7 @@ class SettingsAxis extends Component {
                          value = {labelX}
                          className = "settingsAxisInput"
                          ref = "labelX"
+                         placeholder = "enter text"
                          />
 
                 <span> Label Y </span>
@@ -115,6 +124,7 @@ class SettingsAxis extends Component {
                            value = {labelY}
                            className = "settingsAxisInput"
                            ref = "labelY"
+                            placeholder = "enter text"
                            />
 
             </div>

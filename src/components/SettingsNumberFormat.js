@@ -35,6 +35,7 @@ class SettingsNumberFormat extends Component {
                      onChange = {this.changeSufix}
                      value = {this.props.number.sufix}
                      className = "settngsNumberFormatInput"
+                       placeholder = "enter text"
                      />
                <span> prefix </span>
                <input type = "text"
@@ -42,6 +43,7 @@ class SettingsNumberFormat extends Component {
                       onChange = { this.changePrefix}
                       value = {this.props.number.prefix}
                       className = "settngsNumberFormatInput"
+                        placeholder = "enter text"
                       />
               <span> format numbers</span>
               <select onChange = {this.selectChange}
