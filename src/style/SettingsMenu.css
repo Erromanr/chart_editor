@@ -1,6 +1,15 @@
 .settingsMenu {
   width: 25%;
   height: 800px;
-  background: silver;
+  background: #424242;
+  color:silver;
   float: left;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+.settingsMenuContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
 }

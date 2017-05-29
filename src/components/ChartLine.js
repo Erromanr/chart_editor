@@ -14,6 +14,14 @@ class ChartLine extends Component {
         let {point,monotone} = this.props.settingsLine;
         let {labelX,labelY} = this.props.label;
         let {colors,oneColor,one,fontColor} = this.props.colors;
+        let widthChart = sufix || prefix ? "91%" : "95%";
+
+        if (labelY) {
+            widthChart = "90%";
+        }
+        if(sufix && labelY || prefix && labelY) {
+            widthChart = "85%";
+        }
         return (
           <div>
           <Chart width={this.props.width}
@@ -24,7 +32,7 @@ class ChartLine extends Component {
                  scaleX = {reverseY}
 
                  >
-           <Layer width = "85%" height ="10%" position = "top right">
+           <Layer width = "100%" height ="10%" position = "top right">
                <Title
                style = {{fill:"red",fontSize:"40px",textAnchor:'middle',dominantBaseline:"text-before-edge"}}
                >
@@ -33,7 +41,7 @@ class ChartLine extends Component {
           </Layer>
           <Layer width = "85%" height ="10%" position = "bottom right">
               <Title
-              style = {{fill:fontColor,fontSize:"20px",textAnchor:'middle',dominantBaseline:"middle"}}
+              style = {{fill:fontColor,fontSize:"20px",textAnchor:'middle',dominantBaseline:"text-after-edge"}}
               >
                {labelX}
              </Title>
@@ -51,7 +59,7 @@ class ChartLine extends Component {
               {labelY}
             </Title>
         </Layer>
-          <Layer width = "85%" height = "60%" position = "middle right" >
+          <Layer width = {widthChart} height = "60%" position = "middle right" >
             <Transform method = {this.props.transform}>
             <Ticks
               axis='y'

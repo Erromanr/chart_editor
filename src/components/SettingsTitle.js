@@ -12,14 +12,14 @@ class SettingsTitle extends Component {
     }
     render()  {
         return (
-            <div>
-                <hr/>
-                <label> Enter title
+            <div style = {{paddingLeft:20}}>
+                <br/>
+                <label>
                 <input type = "text"
                        value = {this.props.title}
                         onChange = {this.changeTitle}
                         ref = "inputTitle"/>
-                </label>
+                </label>Enter title
             </div>
         );
     }

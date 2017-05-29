@@ -15,11 +15,16 @@ class ChartPlace extends Component {
   render() {
     let {point,monotone} = this.props.settingsLine;
     let elem;
+    let style = {
+        width:`${this.props.size.width + 20}px`,
+        height:`${this.props.size.height + 20}px`
+    }
     switch (this.props.value) {
       case "pie":
-        elem = <ChartPie height = {this.props.size.height}
-                          width = {this.props.size.width}
-                          />;
+        elem =      <ChartPie height = {this.props.size.height}
+                              width = {this.props.size.width}
+                              />
+
         break;
       case "bar":
         elem = <ChartBar height = {this.props.size.height}
@@ -115,8 +120,9 @@ class ChartPlace extends Component {
     }
     return (
       <div className="chartPlace">
+        <div className = "chartWrapper" style = {style}>
           {elem}
-
+          </div>
       </div>
     );
   }

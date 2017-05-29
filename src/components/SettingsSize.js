@@ -14,26 +14,30 @@ class SettingsSize extends Component {
         this.props.width(+e.target.value);
     }
     render() {
+        let style = {
+            display:"flex",
+            flexDirection:"column",
+            paddingLeft:20,
+        }
         return(
-            <div>
-                <hr/>
-                <label>Height
+            <div style = {style}>
+                <label>
                 <input type = "number"
                        min = "0"
                        max = "1000"
                        step = {5}
                        onChange = {this.handleHeigth}
                        value = {this.props.size.height}
-                       />
-                </label>
-                <label> width
+                       />Height
+                </label><br/>
+                <label>
                 <input type = "number"
                        min = "0"
                        max = "1000"
                        step = {5}
                        onChange = {this.handleWidth}
                        value = {this.props.size.width}
-                       />
+                       />Width
                 </label>
             </div>
         );

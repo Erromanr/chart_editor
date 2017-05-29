@@ -1,6 +1,6 @@
 import React , {Component} from "react";
 import {connect} from "react-redux";
-
+import {Toggle,Slider} from 'material-ui';
 
 class SettingsPie extends Component {
     constructor(props) {
@@ -8,32 +8,47 @@ class SettingsPie extends Component {
         this.handleRange = this.handleRange.bind(this);
         this.handleCheck = this.handleCheck.bind(this);
     }
-    handleRange(e) {
-        this.props.range(+e.target.value);
+    handleRange(event,value) {
+        this.props.range(value);
     }
     handleCheck(e) {
         this.props.check(e.target.checked);
     }
     render() {
         let {radius,combined} = this.props.pie;
+        const styles = {
+            root: {
+              display: 'flex',
+              height: 40,
+              paddingLeft:20,
+              flexDirection: 'column',
+
+              alignItems:"start",
+            },
+        }
         return (
             <div>
-            <hr/>
-            <label> Pie radius
-            <input type = "range"
-                   onChange = {this.handleRange}
-                    min="0"
-                    max="100"
-                    step="1"
-                    value = {radius}
-                   />
-            </label>
-            <label> combined
-                <input type = "checkbox"
-                       onChange = {this.handleCheck}
-                       checked = {combined}
+      
+            <div style = {styles.root}>
+              <span> Pie radius </span>
+              <Slider style = {{height:20,width:200,}}
+                      sliderStyle = {{margin:0}}
+                      onChange = {this.handleRange}
+                      min={0}
+                      max={100}
+                      step={1}
+                      value = {radius}
+                     />
+            </div>
+
+
+                <Toggle label  = "combined"
+                        labelPosition = "right"
+                        onToggle = {this.handleCheck}
+                        toggled = {combined}
+                        style = {{paddingLeft:20}}
                        />
-            </label>
+
             </div>
         );
     }

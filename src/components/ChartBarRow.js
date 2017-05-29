@@ -15,6 +15,7 @@ class ChartBarRow extends Component {
         let {labelX,labelY} = this.props.label;
         let {colors,oneColor,one,fontColor} = this.props.colors;
         let {inner, group} = this.props.bar;
+        let widthChart = labelY ? "85%" :"93%"
         return (
           <Chart width={this.props.width}
                  height={this.props.height}
@@ -25,7 +26,7 @@ class ChartBarRow extends Component {
                   >
 
           <Transform method = {this.props.transform} >
-                <Layer width = "80%" height ="10%" position = "top right">
+                <Layer width = "100%" height ="10%" position = "top right">
                     <Title
                     style = {{fill:"red",fontSize:"40px",textAnchor:'middle',dominantBaseline:"text-before-edge"}}
                     >
@@ -34,7 +35,7 @@ class ChartBarRow extends Component {
                </Layer>
                <Layer width = "80%" height ="10%" position = "bottom right">
                    <Title
-                   style = {{fill:fontColor,fontSize:"20px",textAnchor:'middle',dominantBaseline:"middle"}}
+                   style = {{fill:fontColor,fontSize:"20px",textAnchor:'middle',dominantBaseline:"text-after-edge"}}
                    >
                     {labelX}
                   </Title>
@@ -52,7 +53,7 @@ class ChartBarRow extends Component {
                    {labelY}
                  </Title>
              </Layer>
-              <Layer width = "80%" height = "60%" position = "middle right" >
+              <Layer width = {widthChart} height = "60%" position = "middle right" >
 
                 <Ticks
                   axis='y'

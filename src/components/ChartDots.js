@@ -15,6 +15,11 @@ class ChartDots extends Component {
         let {labelX,labelY} = this.props.label;
         let {colors,oneColor,one,fontColor} = this.props.colors;
         let {typeDots,radiusDots} = this.props.dots;
+        let widthChart = sufix || labelY ? "88%" : "95%";
+
+        if(sufix && labelY || prefix && labelY) {
+            widthChart = "85%";
+        }
 
         return(
           <div>
@@ -25,7 +30,7 @@ class ChartDots extends Component {
                  scaleY = {reverseX}
                  scaleX = {reverseY}
                  >
-                 <Layer width = "85%" height ="10%" position = "top right">
+                 <Layer width = "100%" height ="10%" position = "top right">
                      <Title
                      style = {{fill:"red",fontSize:"40px",textAnchor:'middle',dominantBaseline:"text-before-edge"}}
                      >
@@ -34,7 +39,7 @@ class ChartDots extends Component {
                 </Layer>
                 <Layer width = "85%" height ="10%" position = "bottom right">
                     <Title
-                    style = {{fill:fontColor,fontSize:"20px",textAnchor:'middle',dominantBaseline:"middle"}}
+                    style = {{fill:fontColor,fontSize:"20px",textAnchor:'middle',dominantBaseline:"text-after-edge"}}
                     >
                      {labelX}
                    </Title>
@@ -52,7 +57,7 @@ class ChartDots extends Component {
                     {labelY}
                   </Title>
               </Layer>
-          <Layer width = "85%" height = "60%" position = "middle right" >
+          <Layer width = {widthChart} height = "60%" position = "middle right" >
 
           <Ticks
             axis='y'
@@ -79,8 +84,7 @@ class ChartDots extends Component {
                     symbolType= {typeDots}
                     circleRadius = {radiusDots}
                     />
-            <Labels label={({point}) => (point.y)}
-                      colors = {["black"]}/>
+
           </Layer>
 
           </Chart>

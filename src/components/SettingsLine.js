@@ -1,6 +1,6 @@
 import React , {Component} from "react";
 import {connect} from "react-redux";
-
+import {Toggle} from 'material-ui';
 
 class SettingsLine extends Component {
     constructor(props) {
@@ -19,21 +19,18 @@ class SettingsLine extends Component {
         let {point,monotone} = this.props.settings;
 
         return (
-            <div>
-                <hr/>
-                <p>settings line</p>
-                <label>point
-                    <input type = "checkbox"
+            <div style = {{paddingLeft:20}}>
+                    <Toggle label = "points"
+                            labelPosition = "right"
+                            toggled = {point}
+                            onToggle = {this.point}/>
 
-                           checked = {point}
-                           onChange = {this.point}/>
-                </label>
-                <label>monotone
-                    <input type = "checkbox"
+                    <Toggle label = "monotone"
+                            labelPosition = "right"
+                            toggled = {monotone}
+                            onToggle = {this.monotone}
+                            />
 
-                           checked = {monotone}
-                           onChange = {this.monotone}/>
-                </label>
             </div>
         );
     }

@@ -1,6 +1,8 @@
 import React , {Component} from "react";
 import {connect} from "react-redux";
 import "../style/SettingsColor.css";
+import {Toggle} from 'material-ui';
+
 class SettingsColor extends Component {
     constructor(props) {
         super(props);
@@ -19,7 +21,7 @@ class SettingsColor extends Component {
             id:+e.target.id,
             value:e.target.value,
         };
-        console.log(obj)
+
         this.props.changePicker(obj)
 
     }
@@ -55,13 +57,15 @@ class SettingsColor extends Component {
                 );
             }
           let menu = (
-            <div>
+            <div className = "colorContainer">
               <div>
-                  <label> One color for all
-                      <input type = "checkbox"
-                              onChange = {this.oneColor}
-                              checked = {colors.oneColor}/>
-                  </label><br/>
+
+                      <Toggle label = "one color for all"
+                              onToggle = {this.oneColor}
+                              toggled = {colors.oneColor}
+                              labelPosition = "right"
+                              />
+
                   {colors.oneColor ? oneColor : null}
               </div>
               <div>
@@ -84,7 +88,10 @@ class SettingsColor extends Component {
                   Colors
               </div>
               </a>
-            {activeTab ? menu : null}
+
+                {activeTab ? menu : null}
+
+
             </div>
         );
     }

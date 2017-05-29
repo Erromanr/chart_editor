@@ -29,26 +29,33 @@ class SettingsNumberFormat extends Component {
         let link = {textDecoration:"none"};
         let tab = (
           <div className = "settingsNmberTab">
-
-              <label> sufix
+              <span> sufix </span>
               <input type = "text"
                      ref = "sufix"
                      onChange = {this.changeSufix}
-                     value = {this.props.number.sufix}/>
-              </label>
-              <select onChange = {this.selectChange} defaultValue = {1}>
+                     value = {this.props.number.sufix}
+                     className = "settngsNumberFormatInput"
+                     />
+               <span> prefix </span>
+               <input type = "text"
+                      ref = "prefix"
+                      onChange = { this.changePrefix}
+                      value = {this.props.number.prefix}
+                      className = "settngsNumberFormatInput"
+                      />
+              <span> format numbers</span>
+              <select onChange = {this.selectChange}
+                      defaultValue = {1}
+                      className = "settngsNumberFormatInput"
+                      >
                 <option value = {100}>100</option>
                 <option value = {10}>10</option>
                 <option value = {1}>without changes</option>
                 <option value = {0.1}>0.1</option>
                 <option value = {0.01}>0.01</option>
               </select>
-              <label> prefix
-              <input type = "text"
-                     ref = "prefix"
-                     onChange = { this.changePrefix}
-                     value = {this.props.number.prefix}/>
-              </label>
+
+
           </div>
         );
         return (
@@ -58,7 +65,9 @@ class SettingsNumberFormat extends Component {
                   Number Format
               </div>
               </a>
-              {this.props.activeTab ? tab : null}
+              <div className =  "numberFormatContainer">
+                  {this.props.activeTab ? tab : null}
+              </div>
             </div>
         );
     }

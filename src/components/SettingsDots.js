@@ -1,7 +1,7 @@
 import React , {Component} from "react";
 import {connect} from "react-redux";
 import "../style/SettingsDots.css";
-
+import {Slider} from 'material-ui';
 class SettingsDots extends Component {
     constructor(props) {
         super(props);
@@ -13,34 +13,49 @@ class SettingsDots extends Component {
           this.props.dotsChange(e.target.value);
     }
 
-    radiusChange(e) {
-          this.props.radiusChange(+e.target.value);
+    radiusChange(event , value) {
+          this.props.radiusChange(value);
     }
     render() {
+      const styles = {
+          root: {
+            display: 'flex',
+            height: 40,
+            paddingLeft:20,
+            flexDirection: 'column',
+
+            alignItems:"start",
+          },
+        }
         let {typeDots,radiusDots} = this.props.dots;
         let range = (
-          <label> radius
-           <input type = "range"
-                  onChange = {this.radiusChange}
-                  value = {radiusDots}
-                  min = {4}
-                  max = {25}
-                  step = {1}
-                  />
-          </label>
+          <div style = {styles.root}>
+            <span>Radius</span>
+             <Slider style = {{width:200,height:20}}
+                    sliderStyle = {{margin:0}}
+                    onChange = {this.radiusChange}
+                    value = {radiusDots}
+                    min = {4}
+                    max = {25}
+                    step = {1}
+
+                    />
+
+          </div>
         );
         return (
             <div className = "settingsDotsContainer">
-            <hr/>
-            <span>type dots</span>
-            <select  onChange = {this.dotsChange} defaultValue = {"circle"}>
-              <option value = {"circle"}>circle</option>
-              <option value = {"cross"}>cross</option>
-              <option value = {"diamond"}>diamond</option>
-              <option value = {"square"}>square</option>
-              <option value = {"triangle-down"}>triangle-down</option>
-              <option value = {"triangle-up"}>triangle-up</option>
-            </select>
+            <div className = "dotsSelect">
+              <span>type dots</span>
+              <select  onChange = {this.dotsChange} defaultValue = {"circle"} style = {{width:200}}>
+                <option value = {"circle"}>circle</option>
+                <option value = {"cross"}>cross</option>
+                <option value = {"diamond"}>diamond</option>
+                <option value = {"square"}>square</option>
+                <option value = {"triangle-down"}>triangle-down</option>
+                <option value = {"triangle-up"}>triangle-up</option>
+              </select>
+            </div>
             {typeDots === "circle" ? range : null}
             </div>
         );

@@ -1,6 +1,7 @@
 import React , {Component} from "react";
 import {connect} from "react-redux";
 import "../style/SettingsBar.css"
+import {Slider} from 'material-ui';
 
 class SettingsBar extends Component {
     constructor(props) {
@@ -9,29 +10,45 @@ class SettingsBar extends Component {
         this.groupChange = this.groupChange.bind(this);
     }
 
-    innerChange(e) {
-        this.props.inner(+e.target.value);
+    innerChange(event,value) {
+        this.props.inner(value);
     }
 
-    groupChange(e) {
-        this.props.group(+e.target.value);
+    groupChange(event,value) {
+        this.props.group(value);
     }
 
     render() {
+      const styles = {
+          root: {
+            display: 'flex',
+            height: 40,
+            paddingLeft:20,
+            flexDirection: 'column',
+
+            alignItems:"start",
+          },
+      }
         let {inner,group} = this.props.bar;
         let stacked ;
+        let style = {
+            width:"100%",
+            height:"50px",
+        }
         if(this.props.type === "bar" || this.props.type === "barRow") {
             console.log("lskadfjksdfj")
             stacked = (
-              <label> group padding
-                  <input type = "range"
+              <div style = {styles.root}>
+              <span> group padding </span>
+                  <Slider style = {{height:20,width:200}}
+                          sliderStyle = {{margin:0}}
                           value = {group}
                           onChange = {this.groupChange}
                           min = {0}
                           max = {10}
                           step = {0.5}
                           />
-              </label>
+              </div>
             );
         }
         else {
@@ -39,17 +56,17 @@ class SettingsBar extends Component {
         }
         return (
             <div className = "settingsBarContainer">
-                <hr/>
-                <span>settings bar</span>
-                <label> inner padding
-                    <input type = "range"
+                <div style = {styles.root}>
+                <span> inner padding</span>
+                    <Slider style = {{height:20,width:200}}
+                            sliderStyle = {{margin:0}}
                             value = {inner}
                             onChange = {this.innerChange}
                             min = {0.2}
                             max = { 4}
                             step = {0.1}
                             />
-                </label>
+                </div>
                 {stacked}
             </div>
         );

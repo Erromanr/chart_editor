@@ -1,5 +1,6 @@
 import React , {Component} from "react";
 import {connect} from "react-redux";
+import {Toggle} from 'material-ui';
 
 class SettingsSwitch extends Component {
     constructor(props) {
@@ -23,21 +24,26 @@ class SettingsSwitch extends Component {
     }
 
     render() {
+        let style = {
+            paddingLeft:20,
+        }
         return (
-            <div>
-                <hr/>
-                <label > switch rows and columns
-                <input type = "checkbox"
-                       checked = {this.props.check}
-                       onChange = {this.changeCheck}
+            <div style = {style}>
+
+
+                <Toggle label = "switch rows and columns"
+                        labelPosition="right"
+                        toggled = {this.props.check}
+                        onToggle = {this.changeCheck}
                        />
-                </label>
-                <label > legend
-                <input type = "checkbox"
-                       checked = {this.props.legendStatus}
-                       onChange = {this.changeLegend}
+
+
+                <Toggle label = "legend"
+                        toggled = {this.props.legendStatus}
+                        onToggle = {this.changeLegend}
+                        labelPosition="right"
                        />
-                </label>
+
             </div>
         );
     }

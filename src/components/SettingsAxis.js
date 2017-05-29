@@ -2,6 +2,7 @@ import React , {Component} from "react";
 import {connect} from "react-redux";
 import  "../style/SettingsAxis.css";
 import "../style/SettingsTabs.css";
+import {Toggle} from 'material-ui';
 
 class SettingsAxis extends Component {
     constructor(props) {
@@ -51,14 +52,22 @@ class SettingsAxis extends Component {
         let {x,y,reverseValueY,reverseValueX} = this.props.axis;
         let link = {textDecoration:"none"};
         let {labelX,labelY} = this.props.label;
+        let {value} = this.props;
+        let disabled  = false;
 
+        if( value === "barRowStacked" || value === "barRow") {
+
+            disabled = true;
+        }
         let tab = (
           <div className = "settingsAxisBlock" >
-            <label > axis Y
-              <input type = "checkbox"
-                     onChange = {this.handleY}
-                     checked = {y}/>
-            </label>
+
+              <Toggle label = "axis Y"
+                      labelPosition = "right"
+                      onToggle = {this.handleY}
+                      toggled = {y}
+                      />
+
             <label> ticks Y
               <input type = "number"
                      onChange = {this.handleTicksY}
@@ -67,41 +76,47 @@ class SettingsAxis extends Component {
                      max = "20"
                      />
             </label>
-            <label > axis X
-              <input type = "checkbox"
-                     onChange = {this.handleX}
-                     checked = {x}/>
-            </label>
+
+              <Toggle  label = "axis X"
+                       onToggle = {this.handleX}
+                       toggled= {x}
+                       labelPosition = "right"
+                       />
+
 
             <div>
-                <label > Reverse X
-                  <input type = "checkbox"
-                         onChange = {this.reverseX}
-                         checked = {reverseValueX}/>
-                </label>
-                <label >Reverse Y
-                  <input type = "checkbox"
-                         onChange = {this.reverseY}
-                         checked = {reverseValueY}/>
-                </label>
+
+                  <Toggle label = "Reverse X"
+                          labelPosition = "right"
+                          onToggle= {this.reverseX}
+                          toggled = {reverseValueX}/>
+
+
+                  <Toggle label = "Reverse Y"
+                          labelPosition = "right"
+                          onToggle = {this.reverseY}
+                          toggled = {reverseValueY}
+                          disabled = {disabled}
+                          />
+
             </div>
-            <div>
-                <label> Label X
+            <div className = "axisLabel">
+                <span> Label X </span>
                   <input type = "text"
                          onChange = {this.changeLabelX}
                          value = {labelX}
                          className = "settingsAxisInput"
                          ref = "labelX"
                          />
-                </label>
-                <label> Label Y
+
+                <span> Label Y </span>
                     <input type = "text"
                            onChange = {this.changeLabelY}
                            value = {labelY}
                            className = "settingsAxisInput"
                            ref = "labelY"
                            />
-               </label>
+
             </div>
           </div>
         );
@@ -124,6 +139,7 @@ export default connect(
         axis:state.axisChart,
         label:state.axisLabel,
         active:state.activeTabs.axis,
+        value:state.chartsType,
     }),
     dispatch => ({
       axisY: (value) => {

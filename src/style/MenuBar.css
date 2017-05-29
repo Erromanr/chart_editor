@@ -2,8 +2,8 @@
     width:15%;
     float: left;
     height: 800px;
-    overflow: scroll;
-    background: silver;
+    overflow-y: scroll;
+    background: #424242;
     padding-top:20px;
     box-sizing: border-box;
 }

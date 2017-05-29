@@ -7,7 +7,14 @@
 .settingsAxisBlock {
   display: flex;
   flex-direction: column;
+  padding:20px 0 20px 20px;
+  box-sizing: border-box;
+
 }
 .settingsAxisInput {
-  width: 50px;
+  width: 200px;
+}
+.axisLabel {
+    display: flex;
+    flex-direction: column;
 }

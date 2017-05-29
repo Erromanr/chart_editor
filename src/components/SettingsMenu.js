@@ -23,6 +23,7 @@ class SettingsMenu extends Component {
   render() {
     let individualMenu ;
     let activeData;
+    let {value} = this.props;
     if(this.props.activeTable) {
         activeData = (
           <div>
@@ -83,18 +84,37 @@ class SettingsMenu extends Component {
             );
             break;
       }
+
+      if(value !=="radialLine" && value !== "radialArea" && value !== "pie" ) {
         activeData = (
-          <div>
+          <div className = "settingsMenuContainer">
+          <SettingsSize />
+          <SettingsTitle />
+          <SettingsDataButton text = "Edit Data"/>
           <SettingsAxis />
           <SettingsNumberFormat />
           <SettingsColor />
-          <SettingsDataButton text = "Edit Data"/>
-          <SettingsSize />
-          <SettingsTitle />
+
+
           {individualMenu}
           <SettingsSwitch />
           </div>
         )
+      }
+      else {
+        activeData = (
+          <div className = "settingsMenuContainer">
+          <SettingsSize />
+          <SettingsTitle />
+          <SettingsDataButton text = "Edit Data"/>
+          <SettingsColor />
+
+
+          {individualMenu}
+          <SettingsSwitch />
+          </div>
+        )
+      }
     }
 
     return (

@@ -15,11 +15,12 @@ import steppedLine from "../pictures/steppedLine.png";
 import areaStepped from "../pictures/areaStepped.png";
 import radialArea from "../pictures/radialArea.png";
 import radialLine from "../pictures/radialLine.png";
-
+import { Scrollbars } from 'react-custom-scrollbars';
 class MenuBar extends Component {
   constructor(props) {
       super(props);
       this.changeType = this.changeType.bind(this);
+
   }
   changeType(e) {
       e.preventDefault();
@@ -28,7 +29,9 @@ class MenuBar extends Component {
 
   render() {
     return (
+
       <div className="menuBar">
+
           <div className  = "menuBarGroup">
               <a href = "#">
                   <img src = {column} className = "menuBarPoint" onClick = {this.changeType} id = "bar" />
@@ -100,8 +103,8 @@ class MenuBar extends Component {
               </a>
           </div>
 
-
       </div>
+
     );
   }
 }
