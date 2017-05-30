@@ -72,6 +72,18 @@ let tableData =
         [{readOnly: true, value: 28}, {value: "" ,label:true}, {value: ""}, {value: ""}, {value: ""},{value: ""}, {value: ""}, {value: ""}],
         [{readOnly: true, value: 29}, {value: "" ,label:true}, {value: ""}, {value: ""}, {value: ""},{value: ""}, {value: ""}, {value: ""}],
         [{readOnly: true, value: 30}, {value: "" ,label:true}, {value: ""}, {value: ""}, {value: ""},{value: ""}, {value: ""}, {value: ""}],
+        [{readOnly: true, value: 31}, {value: "" ,label:true}, {value: ""}, {value: ""}, {value: ""},{value: ""}, {value: ""}, {value: ""}],
+        [{readOnly: true, value: 32}, {value: "" ,label:true}, {value: ""}, {value: ""}, {value: ""},{value: ""}, {value: ""}, {value: ""}],
+        [{readOnly: true, value: 33}, {value: "" ,label:true}, {value: ""}, {value: ""}, {value: ""},{value: ""}, {value: ""}, {value: ""}],
+        [{readOnly: true, value: 34}, {value: "" ,label:true}, {value: ""}, {value: ""}, {value: ""},{value: ""}, {value: ""}, {value: ""}],
+        [{readOnly: true, value: 35}, {value: "" ,label:true}, {value: ""}, {value: ""}, {value: ""},{value: ""}, {value: ""}, {value: ""}],
+        [{readOnly: true, value: 36}, {value: "" ,label:true}, {value: ""}, {value: ""}, {value: ""},{value: ""}, {value: ""}, {value: ""}],
+        [{readOnly: true, value: 37}, {value: "" ,label:true}, {value: ""}, {value: ""}, {value: ""},{value: ""}, {value: ""}, {value: ""}],
+        [{readOnly: true, value: 38}, {value: "" ,label:true}, {value: ""}, {value: ""}, {value: ""},{value: ""}, {value: ""}, {value: ""}],
+        [{readOnly: true, value: 39}, {value: "" ,label:true}, {value: ""}, {value: ""}, {value: ""},{value: ""}, {value: ""}, {value: ""}],
+        [{readOnly: true, value: 40}, {value: "" ,label:true}, {value: ""}, {value: ""}, {value: ""},{value: ""}, {value: ""}, {value: ""}],
+        [{readOnly: true, value: 41}, {value: "" ,label:true}, {value: ""}, {value: ""}, {value: ""},{value: ""}, {value: ""}, {value: ""}],
+        [{readOnly: true, value: 42}, {value: "" ,label:true}, {value: ""}, {value: ""}, {value: ""},{value: ""}, {value: ""}, {value: ""}],
 
       ]
 

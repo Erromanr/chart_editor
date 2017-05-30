@@ -26,9 +26,12 @@ class SettingsPie extends Component {
               alignItems:"start",
             },
         }
+        let checkboxLabel  = {
+            color:"silver",
+        }
         return (
             <div>
-      
+
             <div style = {styles.root}>
               <span> Pie radius </span>
               <Slider style = {{height:20,width:200,}}
@@ -47,6 +50,7 @@ class SettingsPie extends Component {
                         onToggle = {this.handleCheck}
                         toggled = {combined}
                         style = {{paddingLeft:20}}
+                        labelStyle = {checkboxLabel}
                        />
 
             </div>

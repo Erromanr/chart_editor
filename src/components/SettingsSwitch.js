@@ -27,6 +27,9 @@ class SettingsSwitch extends Component {
         let style = {
             paddingLeft:20,
         }
+        let checkboxLabel  = {
+            color:"silver",
+        }
         return (
             <div style = {style}>
 
@@ -35,6 +38,7 @@ class SettingsSwitch extends Component {
                         labelPosition="right"
                         toggled = {this.props.check}
                         onToggle = {this.changeCheck}
+                        labelStyle = {checkboxLabel}
                        />
 
 
@@ -42,6 +46,7 @@ class SettingsSwitch extends Component {
                         toggled = {this.props.legendStatus}
                         onToggle = {this.changeLegend}
                         labelPosition="right"
+                        labelStyle = {checkboxLabel}
                        />
 
             </div>

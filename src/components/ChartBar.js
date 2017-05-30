@@ -16,13 +16,20 @@ class ChartBar extends Component {
         let {colors,oneColor,one,fontColor} = this.props.colors;
         let {inner,group} = this.props.bar;
         let widthChart = sufix || prefix ? "91%" : "95%";
+        let innerPadding = inner;
+
+        if(this.props.type === "barStacked") {
+            innerPadding = innerPadding *3;
+        }
 
         if (labelY) {
             widthChart = "90%";
         }
+
         if(sufix && labelY || prefix && labelY) {
             widthChart = "85%";
         }
+
         return (
           <Chart width={this.props.width}
                  height={this.props.height}
@@ -82,7 +89,7 @@ class ChartBar extends Component {
                     />
 
                     <Bars colors='category10'
-                          innerPadding = {`${inner}%`}
+                          innerPadding = {`${innerPadding}%`}
                           groupPadding = {`${group}%`}
                           combined = {this.props.combined}
                             colors = {oneColor ? one : colors}
@@ -105,6 +112,7 @@ export default connect(
       colors:state.colors,
       label:state.axisLabel,
       bar:state.settingsBar,
+      type:state.chartsType,
   }),
   dispatch => ({
 

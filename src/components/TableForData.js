@@ -13,21 +13,25 @@ class TableForData extends Component {
         this.props.changeData(mass);
         if(this.props.checkConverter) {
             this.props.convertSwitchData();
-          
+
         }
         else {
             this.props.convertData();
         }
     }
     render() {
-        return (
-          <div className = "tableForDataContainer">
+        let pie = (
           <ReactDataSheet
             className = "tableForDataCell"
             data={this.props.data}
             valueRenderer={(cell) => cell.value}
             onChange= {this.change}
           />
+        )
+      
+        return (
+          <div className = "tableForDataContainer">
+              {pie}
           </div>
         );
 
@@ -37,7 +41,9 @@ class TableForData extends Component {
 export default connect(
     state => ({
         data:state.dataTable.grid,
+        dataPie:state.dataTable.gridPie,
         checkConverter:state.switchRC,
+        type:state.chartsType,
     }),
     dispatch => ({
         changeData:(value) => {

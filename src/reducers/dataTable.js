@@ -1,7 +1,7 @@
 import tableData from "../tableData";
 import convertData from "../convertData";
 import convertDataReverse from "../convertDataReverse";
-import series from "../data";
+import {series,seriesPie} from "../data";
 let initialState = {
   grid:tableData,
   data:series,
@@ -20,7 +20,9 @@ export default function dataTable(state = initialState,action) {
     if(action.type === "CONVERT_DATA") {
       let dataC = state.grid.concat();
       let dataConvert = convertData(dataC);
+
       let newObj = Object.assign({},state);
+
       newObj.data = dataConvert.data;
       newObj.nameList = dataConvert.nameList;
       return newObj;

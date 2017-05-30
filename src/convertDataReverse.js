@@ -3,6 +3,7 @@ export default function convertDataReverse(data) {
     let seriesTo = [];
     let seriesName = [];
     let finalSeries = [];
+    let finalSeriesPie = [];
     let val = 0;
 
     let array = data.slice(2);
@@ -47,6 +48,9 @@ export default function convertDataReverse(data) {
            })
      let value = columnName.length > seriesTo.length ? columnName.length :seriesTo.length;
     for(let i =0 ; i< value; i++) {
+        finalSeriesPie.push({
+            data:seriesTo[i],
+        })
        if(columnName[i]) {
             finalSeries.push({
             name:columnName[i],
@@ -61,6 +65,7 @@ export default function convertDataReverse(data) {
     }
     return {
       nameList:seriesName,
-      data:finalSeries
+      data:finalSeries,
+      dataPie:finalSeriesPie,
     };
 }

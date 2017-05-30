@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import {connect} from "react-redux";
 import '../style/MenuBar.css';
 import {Chart,Pies,Transform,Title,Layer,Labels} from "rumble-charts";
-import series from "../data";
-import Legend from "./Legend";
+
+import LegendPie from "./LegendPie";
 
 class ChartPie extends Component {
   render() {
@@ -27,7 +27,7 @@ class ChartPie extends Component {
               </Title>
           </Layer>
           <Layer width = "85%" height ="10%" position = "bottom right" >
-             <Legend />
+             
           </Layer>
           <Layer width = "80%" height = "80%" position = "middle center" >
           <Transform method={['transpose', 'stack']}>

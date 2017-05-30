@@ -36,7 +36,7 @@ class SettingsBar extends Component {
             height:"50px",
         }
         if(this.props.type === "bar" || this.props.type === "barRow") {
-            console.log("lskadfjksdfj")
+          
             stacked = (
               <div style = {styles.root}>
               <span> group padding </span>

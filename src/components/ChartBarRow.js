@@ -15,7 +15,12 @@ class ChartBarRow extends Component {
         let {labelX,labelY} = this.props.label;
         let {colors,oneColor,one,fontColor} = this.props.colors;
         let {inner, group} = this.props.bar;
-        let widthChart = labelY ? "85%" :"93%"
+        let widthChart = labelY ? "85%" :"93%";
+        let innerPadding = inner;
+
+        if(this.props.type === "barRowStacked") {
+            innerPadding = innerPadding *2;
+        }
         return (
           <Chart width={this.props.width}
                  height={this.props.height}
@@ -75,7 +80,7 @@ class ChartBarRow extends Component {
                     />
 
                     <Bars colors='category10'
-                          innerPadding= {`${inner}%`}
+                          innerPadding= {`${innerPadding}%`}
                           groupPadding = {`${group}%`}
                           combined = {this.props.combined}
                           colors = {oneColor ? one : colors}
@@ -99,6 +104,7 @@ export default connect(
       colors:state.colors,
       label:state.axisLabel,
       bar:state.settingsBar,
+      type:state.chartsType,
   }),
   dispatch => ({
 

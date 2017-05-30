@@ -76,6 +76,7 @@ class SettingsColor extends Component {
 
                   {colors.oneColor ? oneColor : null}
               </div>
+              <hr/>
               <div>
                   <label>
                       <input type = "color"
@@ -83,16 +84,17 @@ class SettingsColor extends Component {
                              onChange = {this.fontColor}
                              />axis and label color
                   </label>
+                  <br/>
+                    <label>
+                        <input type = "color"
+                               value = {colors.background}
+                               onChange = {this.changeBackground}
+                               />background chart
+                    </label>
+
                   <hr/>
               </div>
-              <div>
-                <label>
-                    <input type = "color"
-                           value = {colors.background}
-                           onChange = {this.changeBackground}
-                           />background chart
-                </label>
-              </div>
+
               <div>
               {names}
               </div>

@@ -13,4 +13,19 @@ const series = [
 },
 
 ];
-export default series;
+const seriesPie = [
+  {
+
+    data:[46,37,38]
+  },
+  {
+
+    data:[27,23,17]
+  },
+  {
+
+    data:[26,28,26],
+  },
+
+];
+export  {series ,seriesPie};

@@ -3,6 +3,7 @@ export  default function convertData(data) {
     let seriesTo = [];
     let seriesName = [];
     let finalSeries = [];
+    let finalSeriesPie = [];
     let val = 0;
 
     let arr = data.slice(2);
@@ -27,9 +28,17 @@ export  default function convertData(data) {
          })
     let value = seriesName.length > val ? seriesName.length : val;
     for(let i =0 ; i< value; i++) {
+        for (let x=0 ; x< seriesTo.length ; x++) {
+            if(seriesTo[x][i]) {
+              finalSeriesPie.push({
+                  data:seriesTo[x][i],
+              })
+            }
+        }
         if(seriesName[i]){
             let data = [];
             for(let j=0;j<seriesName.length ; j++) {
+
                 if(seriesTo[j][i]) {
                 data.push(+seriesTo[j][i]);
                 }
@@ -61,9 +70,10 @@ export  default function convertData(data) {
             mass.push(item.value);
         }}
     )
-    
+
     return {
       nameList:mass,
-      data:finalSeries
+      data:finalSeries,
+      dataPie:finalSeriesPie,
     };
 }

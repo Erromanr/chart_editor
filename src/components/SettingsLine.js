@@ -17,18 +17,22 @@ class SettingsLine extends Component {
     }
     render() {
         let {point,monotone} = this.props.settings;
-
+        let checkboxLabel  = {
+            color:"silver",
+        }
         return (
             <div style = {{paddingLeft:20}}>
                     <Toggle label = "points"
                             labelPosition = "right"
                             toggled = {point}
-                            onToggle = {this.point}/>
+                            onToggle = {this.point}
+                            labelStyle = {checkboxLabel}/>
 
                     <Toggle label = "monotone"
                             labelPosition = "right"
                             toggled = {monotone}
                             onToggle = {this.monotone}
+                            labelStyle = {checkboxLabel}
                             />
 
             </div>
