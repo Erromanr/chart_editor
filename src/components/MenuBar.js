@@ -15,7 +15,9 @@ import steppedLine from "../pictures/steppedLine.png";
 import areaStepped from "../pictures/areaStepped.png";
 import radialArea from "../pictures/radialArea.png";
 import radialLine from "../pictures/radialLine.png";
-import { Scrollbars } from 'react-custom-scrollbars';
+
+
+
 class MenuBar extends Component {
   constructor(props) {
       super(props);
@@ -102,7 +104,7 @@ class MenuBar extends Component {
                 <span>Radial Area</span>
               </a>
           </div>
-
+        
       </div>
 
     );

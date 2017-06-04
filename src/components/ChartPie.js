@@ -18,6 +18,7 @@ class ChartPie extends Component {
         <Chart width={this.props.width}
                height={this.props.height}
                series={this.props.series}
+               id = "chart"
                >
            <Layer width = "100%" height ="10%" position = "top center">
                <Title
@@ -27,7 +28,7 @@ class ChartPie extends Component {
               </Title>
           </Layer>
           <Layer width = "85%" height ="10%" position = "bottom right" >
-             
+
           </Layer>
           <Layer width = "80%" height = "80%" position = "middle center" >
           <Transform method={['transpose', 'stack']}>

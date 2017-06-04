@@ -3,10 +3,11 @@
     padding:100px 50px;
     box-sizing: border-box;
     width:65%;
-    height: 800px;
+    height:100vh;
     float: left;
     box-sizing: border-box;
     background: #626262;
+
     display: flex;
     justify-content: center;
     align-items: center;

@@ -11,7 +11,7 @@ class ActiveDataSheets extends Component {
 
     render()  {
         return (
-            <div className = "activeTable">
+            <div className = "activeTable" >
                 <TableForData />
                 <SettingsDataButton text= "hide" />
             </div>

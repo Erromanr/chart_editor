@@ -1,16 +1,32 @@
 .settingsMenu {
   width: 20%;
-  height: 800px;
+  height:100vh;
   background: #424242;
   color:silver;
   float: left;
   overflow-y: auto;
   overflow-x: hidden;
+  padding-top:20px;
   box-sizing: border-box;
+
 }
 .settingsMenuContainer {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
 
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 4px #626262;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: silver;
 }

@@ -8,9 +8,11 @@
     "react-datasheet": "^1.2.5",
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.4",
+    "react-scrollbar": "^0.5.1",
     "redux": "^3.6.0",
     "redux-devtools-extension": "^2.13.1",
-    "rumble-charts": "^1.1.1"
+    "rumble-charts": "^1.1.1",
+    "save-svg-as-png": "^1.2.0"
   },
   "devDependencies": {
     "react-scripts": "0.9.5"

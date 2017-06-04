@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from "react-dom";
 import {connect} from "react-redux";
 import SettingsPie from "./SettingsPie";
 import SettingsAxis from "./SettingsAxis";
@@ -13,13 +14,18 @@ import SettingsSwitch from "./SettingsSwitch";
 import SettingsColor from "./SettingsColor";
 import SettingsDots from "./SettingsDots";
 import SettingsBar from "./SettingsBar";
+import SettingsSave from "./SettingsSave";
 
 class SettingsMenu extends Component {
   constructor(props) {
       super(props);
-
+      this.savePng = this.savePng.bind(this);
   }
 
+  savePng() {
+      let svg  = document.getElementById("chart");
+
+  }
   render() {
     let individualMenu ;
     let activeData;
@@ -91,6 +97,8 @@ class SettingsMenu extends Component {
           <SettingsSize />
           <SettingsTitle />
           <SettingsDataButton text = "Edit Data"/>
+          <SettingsSave text = "Save to png" />
+          <SettingsSave text = "Download csv" />
           <SettingsAxis />
           <SettingsNumberFormat />
           <SettingsColor />
@@ -98,6 +106,7 @@ class SettingsMenu extends Component {
 
           {individualMenu}
           <SettingsSwitch />
+
           </div>
         )
       }
@@ -107,6 +116,8 @@ class SettingsMenu extends Component {
           <SettingsSize />
           <SettingsTitle />
           <SettingsDataButton text = "Edit Data"/>
+          <SettingsSave text = "Save to png" />
+          <SettingsSave text = "Download csv" />
           <SettingsColor />
 
 

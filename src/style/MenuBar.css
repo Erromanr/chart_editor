@@ -1,9 +1,11 @@
 .menuBar {
     width:15%;
     float: left;
-    height: 800px;
+    height:100vh;
     overflow-y: scroll;
     background: #424242;
+
+
     padding-top:20px;
     box-sizing: border-box;
 }
@@ -35,6 +37,7 @@
     align-items: center;
     text-decoration: none;
     color:white;
+
     font-size: 15px;
     font-weight: 300;
 }

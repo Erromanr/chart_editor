@@ -23,7 +23,7 @@ class ChartBar extends Component {
         }
 
         if (labelY) {
-            widthChart = "90%";
+            widthChart = "88%";
         }
 
         if(sufix && labelY || prefix && labelY) {
@@ -38,6 +38,7 @@ class ChartBar extends Component {
                  minX = {0}
                  scaleY = {reverseX}
                  scaleX = {reverseY}
+                 id = "chart"
                   >
                   <Layer width = "100%" height ="10%" position = "top right">
                       <Title
